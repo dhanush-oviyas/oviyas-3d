@@ -1,159 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UX UI Design | Oviyas Design Studio</title>
-  <meta name="description" content="UX UI design services by Oviyas Design Studio for digital products, apps, dashboards, and design systems.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="service-pages.css">
-</head>
-<body>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Oviyas Design Studio – UI/UX Design Services</title>
+  <meta name="description" content="UI/UX design services including research, audits, wireframing, interface design, prototyping, and design systems."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  
+  </head>
+  <body class="page-ux-ui-design">
+
+  <a class="page-ux-ui-design-u1" href="#main">Skip to content</a>
+
+  <!-- NAV -->
   <header class="ods-header">
-    <nav class="ods-navbar">
-      <a class="ods-logo" href="oviyas-design-studio/index.html#home" aria-label="Oviyas home"><img src="oviyas-design-studio/public/logo.png" alt="Oviyas Logo"></a>
+    <nav class="ods-navbar" id="oviyas-glassmorphic-navbar">
+      <a class="ods-logo" href="oviyas-design-studio/index.html#home" aria-label="Oviyas home">
+        <img src="oviyas-design-studio/public/logo.png" alt="Oviyas Logo">
+      </a>
       <div class="ods-desktop-links">
         <a class="ods-nav-link" href="oviyas-design-studio/index.html#home">Home</a>
-        <a class="ods-nav-link" href="oviyas-design-studio/index.html#about">About</a>
-        <a class="ods-nav-link is-active" href="oviyas-design-studio/index.html#services">Services</a>
-        <a class="ods-nav-link" href="oviyas-design-studio/index.html#project">Project</a>
-        <a class="ods-nav-link" href="oviyas-design-studio/index.html#reach-us">Reach Us</a>
+        <a class="ods-nav-link is-active" href="#services">Services</a>
+        <a class="ods-nav-link" href="#deliver">Deliverables</a>
+        <a class="ods-nav-link" href="#why">Why Us</a>
+        <a class="ods-nav-link" href="#cta">Contact</a>
       </div>
       <div class="ods-actions">
-        <a class="ods-cta" href="oviyas-design-studio/index.html#reach-us">Contact us</a>
+        <a class="ods-cta" href="#cta">Contact us</a>
         <button class="ods-menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
       </div>
       <div class="ods-mobile-menu">
         <a href="oviyas-design-studio/index.html#home">Home</a>
-        <a href="oviyas-design-studio/index.html#about">About</a>
-        <a class="is-active" href="oviyas-design-studio/index.html#services">Services</a>
-        <a href="oviyas-design-studio/index.html#project">Project</a>
-        <a href="oviyas-design-studio/index.html#reach-us">Reach Us</a>
+        <a class="is-active" href="#services">Services</a>
+        <a href="#deliver">Deliverables</a>
+        <a href="#why">Why Us</a>
+        <a href="#cta">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main>
-    <section class="micro-hero">
-      <div class="container micro-grid">
-        <div class="micro-copy">
-          <div class="eyebrow reveal">Service 01 / UX UI Design</div>
-          <h1 class="reveal d1">Product interfaces that feel clear, fast, and premium.<span>Built around real user behavior.</span></h1>
-          <p class="reveal d2">We shape app, SaaS, dashboard, and web product experiences from research to high-fidelity UI, so every screen has a purpose and every interaction moves users forward.</p>
-          <div class="hero-actions reveal d3">
-            <a class="btn-primary" href="#scope">View Scope</a>
-            <a class="btn-secondary" href="#deliverables">Deliverables</a>
+  <!-- HERO -->
+  <section id="hero" role="banner" aria-label="Hero">
+    <div class="aurora haur"></div>
+    <div class="hov"></div>
+    <div class="orbs">
+      <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+      <div class="orb o4"></div><div class="orb o5"></div><div class="orb o6"></div>
+    </div>
+    <div class="container hc" id="main">
+      <h1 class="ht reveal d1">
+        <span class="l1">Design Digital Experiences</span>
+        <span class="l2">People Love to Use</span>
+      </h1>
+      <p class="hsub reveal d2">We help businesses create intuitive, user-centered digital products through UX research, UX audits, UI design, usability testing, information architecture, wireframing, prototyping, and design systems.</p>
+      <div class="hbtns reveal d3">
+        <a href="#cta" class="btnp">Start Your Project <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="#cta" class="btns">Book a Discovery Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="page-ux-ui-design-u2" id="overview" aria-label="Overview">
+    <div class="container">
+      <span class="label reveal">01 / Overview</span>
+      <div class="agrid">
+        <div class="atxt">
+          <h2 class="reveal d1 page-ux-ui-design-u3">Not Every Project<br>Needs a Full Redesign</h2>
+          <p class="reveal d2">We offer individual UX and UI services that can be engaged independently or combined into a complete product design solution.</p>
+          <p class="reveal d3">Whether you need research, audits, wireframes, UI design, or a design system, we can support the exact stage your product is in.</p>
+        </div>
+        <div class="glass reveal d2">
+          <div class="hlst">
+            <h3 class="page-ux-ui-design-u4">Service Note</h3>
+            <div class="hli"><div class="hldot page-ux-ui-design-u5"></div><div><div class="hlt">Need only a UX Audit?</div><div class="hld">We can focus on usability issues, friction points, and conversion barriers.</div></div></div>
+            <div class="hli"><div class="hldot page-ux-ui-design-u6"></div><div><div class="hlt">Need only UX Research?</div><div class="hld">We can validate ideas with interviews, surveys, and behavioral analysis.</div></div></div>
+            <div class="hli"><div class="hldot page-ux-ui-design-u7"></div><div><div class="hlt">Need only UI Design?</div><div class="hld">We can design modern, accessible, and visually engaging interfaces.</div></div></div>
+            <div class="hli"><div class="hldot page-ux-ui-design-u8"></div><div><div class="hlt">No problem.</div><div class="hld">Every service can be engaged individually or combined into a complete end-to-end UI/UX design engagement.</div></div></div>
           </div>
-          <div class="hero-meta reveal d4">
-            <div class="meta-item"><div class="meta-value">4-8w</div><div class="meta-label">Typical sprint</div></div>
-            <div class="meta-item"><div class="meta-value">UX+UI</div><div class="meta-label">Full flow</div></div>
-            <div class="meta-item"><div class="meta-value">Figma</div><div class="meta-label">Handoff ready</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="page-ux-ui-design-u9" id="services" aria-label="Services">
+    <div class="container">
+      <span class="label reveal">02 / Our UI/UX Services</span>
+      <h2 class="reveal d1 page-ux-ui-design-u10">Choose the UX Service You Need</h2>
+      <p class="reveal d2 page-ux-ui-design-u11">Not every project requires a full redesign. We offer individual UX and UI services that can be engaged independently or combined into a complete product design solution.</p>
+      <div class="sgrid">
+        <article class="glass sc reveal d1">
+          <div class="sic page-ux-ui-design-u12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
           </div>
-          <div class="service-tabs reveal d4">
-            <a class="active" href="ux-ui-design.html">UX UI Design</a>
-            <a href="web-design.html">Web Design</a>
-            <a href="branding.html">Branding</a>
-            <a href="interactive-3d-on-web.html">Interactive 3D</a>
+          <div class="sn">UX Research</div>
+          <div class="sd">Understand your users through interviews, surveys, usability studies, and behavioral analysis to make informed design decisions.</div>
+          <span class="slk page-ux-ui-design-u13">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d2">
+          <div class="sic page-ux-ui-design-u14">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M7 6v12"/><path d="M17 6v12"/></svg>
           </div>
+          <div class="sn">UX Audit</div>
+          <div class="sd">Identify usability issues, friction points, and conversion barriers in your existing product through a structured UX evaluation.</div>
+          <span class="slk page-ux-ui-design-u15">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d3">
+          <div class="sic page-ux-ui-design-u16">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFD08A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="12" x="4" y="6" rx="2"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+          </div>
+          <div class="sn">UI Audit</div>
+          <div class="sd">Review visual consistency, accessibility, hierarchy, responsiveness, and interface quality to improve the overall user experience.</div>
+          <span class="slk page-ux-ui-design-u17">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d4">
+          <div class="sic page-ux-ui-design-u18">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h7"/></svg>
+          </div>
+          <div class="sn">Heuristic Evaluation</div>
+          <div class="sd">Evaluate your product against established usability principles and identify areas impacting usability and user satisfaction.</div>
+          <span class="slk page-ux-ui-design-u19">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d3">
+          <div class="sic page-ux-ui-design-u16">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFD08A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="12" x="4" y="6" rx="2"/><path d="M6 9h12"/><path d="M6 13h8"/></svg>
+          </div>
+          <div class="sn">Wireframing</div>
+          <div class="sd">Develop low and mid-fidelity layouts that define functionality, structure, and user interactions before visual design begins.</div>
+          <span class="slk page-ux-ui-design-u17">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d4">
+          <div class="sic page-ux-ui-design-u18">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+          </div>
+          <div class="sn">UI Design</div>
+          <div class="sd">Design modern, accessible, and visually engaging interfaces aligned with your brand and business goals.</div>
+          <span class="slk page-ux-ui-design-u19">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d1">
+          <div class="sic page-ux-ui-design-u12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c4-8 12-8 16 0"/><path d="M6 18h12"/><circle cx="12" cy="10" r="1.5"/></svg>
+          </div>
+          <div class="sn">Interactive Prototyping</div>
+          <div class="sd">Build realistic prototypes to validate concepts, gather feedback, and reduce development risk.</div>
+          <span class="slk page-ux-ui-design-u13">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+        <article class="glass sc reveal d2">
+          <div class="sic page-ux-ui-design-u14">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div class="sn">Design Systems</div>
+          <div class="sd">Create scalable design systems with reusable components, design tokens, and documentation for long-term consistency.</div>
+          <span class="slk page-ux-ui-design-u15">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="page-ux-ui-design-u2" id="deliver" aria-label="Deliverables">
+    <div class="container">
+      <span class="label reveal">03 / Deliverables</span>
+      <h2 class="reveal d1 page-ux-ui-design-u10">What You'll Receive</h2>
+      <p class="reveal d2 page-ux-ui-design-u20">Every engagement concludes with clear, actionable deliverables that your team can immediately use for product improvement, validation, or development.</p>
+      <div class="dgrid">
+        <div class="ditems">
+          <div class="ditem reveal d1"><div class="dnum">01</div><div class="dlbl">Research Findings Report</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d2"><div class="dnum">02</div><div class="dlbl">UX Audit Report</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d3"><div class="dnum">03</div><div class="dlbl">Heuristic Evaluation Report</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d4"><div class="dnum">04</div><div class="dlbl">User Journey Maps</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d5"><div class="dnum">05</div><div class="dlbl">Information Architecture Documents</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d6"><div class="dnum">06</div><div class="dlbl">Wireframes</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d1"><div class="dnum">07</div><div class="dlbl">UI Design Files</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d2"><div class="dnum">08</div><div class="dlbl">Interactive Prototypes</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d3"><div class="dnum">09</div><div class="dlbl">Design System</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+          <div class="ditem reveal d4"><div class="dnum">10</div><div class="dlbl">Developer Handoff</div><div class="darr"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B3B3B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
         </div>
-        <div class="hero-visual reveal d2">
-          <img src="frames-services/ezgif-frame-001.jpg" alt="Abstract product interface preview">
-          <div class="visual-overlay"></div>
-          <div class="visual-card"><h3>From messy flows to confident product decisions</h3><p>Research, journeys, wireframes, prototypes, UI systems, and developer-ready assets in one focused engagement.</p></div>
+        <div class="glass icard reveal d2">
+          <div class="ihdr">
+            <div class="iico"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="ititle">Clear, Actionable Deliverables</div>
+          </div>
+          <div class="ilst">
+            <div class="iitem"><div class="iblt"></div>Detailed documentation your team can use right away</div>
+            <div class="iitem"><div class="iblt"></div>Practical recommendations for validation and improvement</div>
+            <div class="iitem"><div class="iblt"></div>Files and handoff materials prepared for development</div>
+            <div class="iitem"><div class="iblt"></div>Deliverables structured for product, design, and engineering teams</div>
+          </div>
+          <div class="inote">Every engagement concludes with a complete set of outputs your team can immediately use for product improvement, validation, or development.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="band" id="scope">
-      <div class="container">
-        <div class="section-head">
-          <div><span class="label reveal">01 / Scope</span><h2 class="reveal d1">What this service covers</h2></div>
-          <p class="reveal d2">Designed for founders, product teams, and businesses that need a sharper product experience without bloated agency process.</p>
-        </div>
-        <div class="card-grid">
-          <article class="glass scope-card reveal d1"><div class="num">01</div><h3>UX Audit</h3><p>We review existing flows, friction points, navigation, content hierarchy, and conversion paths.</p></article>
-          <article class="glass scope-card reveal d2"><div class="num">02</div><h3>User Flows</h3><p>Clear journeys, information architecture, and screen maps before visual design begins.</p></article>
-          <article class="glass scope-card reveal d3"><div class="num">03</div><h3>UI System</h3><p>Reusable components, states, spacing, type, color, and responsive behavior in Figma.</p></article>
-          <article class="glass scope-card reveal d4"><div class="num">04</div><h3>Prototype</h3><p>Clickable flows for stakeholder review, testing, and confident development handoff.</p></article>
-        </div>
+  <!-- WHY CHOOSE OVIYAS -->
+  <section class="page-ux-ui-design-u21" id="why" aria-label="Why Oviyas">
+    <div class="container">
+      <div class="page-ux-ui-design-u22">
+        <span class="label reveal">04 / Why Choose Oviyas</span>
+        <h2 class="reveal d1 page-ux-ui-design-u23">Why Businesses Choose Oviyas Design Studio</h2>
+        <p class="reveal d2 page-ux-ui-design-u24">We combine user-centered design thinking with business strategy to create digital experiences that are intuitive, scalable, and measurable.</p>
       </div>
-    </section>
-
-    <section class="band alt">
-      <div class="container split">
-        <div class="split-copy"><span class="label reveal">02 / Approach</span><h2 class="reveal d1">We design the decision flow before the screen polish.</h2><p class="reveal d2">The goal is not just attractive screens. We define what users need to understand, choose, compare, and complete. Then we turn that structure into a polished interface system.</p></div>
-        <div class="glass check-list reveal d2">
-          <h3>Engagement rhythm</h3>
-          <div class="check"><i></i><div><strong>Discovery workshop</strong><span>Goals, audience, constraints, success metrics, and product priorities.</span></div></div>
-          <div class="check"><i></i><div><strong>Wireframe sprint</strong><span>Fast structural exploration before high-fidelity styling.</span></div></div>
-          <div class="check"><i></i><div><strong>UI production</strong><span>Final layouts, component states, interaction notes, and responsive variants.</span></div></div>
-          <div class="check"><i></i><div><strong>Developer handoff</strong><span>Assets, specs, and implementation support for a clean build.</span></div></div>
-        </div>
+      <div class="orbital reveal">
+        <div class="oring or1"></div>
+        <div class="oring or2"></div>
+        <div class="oglw"></div>
+        <div class="octr"><div class="glass ocrd"><div class="ow">Why</div><div class="ob">Oviyas</div></div></div>
+        <div class="wnode why-top"><div class="glass wnc"><div class="wndot page-ux-ui-design-u6"></div><div class="wnt">Research-Driven Decisions</div><div class="wnd">Every recommendation is supported by user insights, usability principles, and real-world evidence.</div></div></div>
+        <div class="wnode page-ux-ui-design-u25"><div class="glass wnc"><div class="wndot page-ux-ui-design-u7"></div><div class="wnt">Business-Focused Design</div><div class="wnd">We design experiences that improve engagement, conversions, retention, and customer satisfaction.</div></div></div>
+        <div class="wnode why-right"><div class="glass wnc"><div class="wndot page-ux-ui-design-u8"></div><div class="wnt">Flexible Engagement Models</div><div class="wnd">Hire us for a single UX service or a complete end-to-end product design engagement.</div></div></div>
+        <div class="wnode why-bottom-right"><div class="glass wnc"><div class="wndot page-ux-ui-design-u5"></div><div class="wnt">Scalable Design Systems</div><div class="wnd">We build foundations that support future growth, consistency, and faster product development.</div></div></div>
+        <div class="wnode why-bottom-left"><div class="glass wnc"><div class="wndot page-ux-ui-design-u6"></div><div class="wnt">Developer-Friendly Deliverables</div><div class="wnd">Our deliverables are structured to reduce ambiguity and accelerate implementation.</div></div></div>
+        <div class="wnode why-left"><div class="glass wnc"><div class="wndot page-ux-ui-design-u7"></div><div class="wnt">Collaborative Process</div><div class="wnd">We work closely with founders, product teams, and stakeholders throughout the engagement.</div></div></div>
       </div>
-    </section>
-
-    <section class="band" id="deliverables">
-      <div class="container deliverables">
-        <div><span class="label reveal">03 / Deliverables</span><h2 class="reveal d1">Everything needed to move into build</h2><div class="deliver-list reveal d2">
-          <div class="deliver-row"><b>01</b><span>UX audit and product recommendations</span></div>
-          <div class="deliver-row"><b>02</b><span>User flows, screen map, and wireframes</span></div>
-          <div class="deliver-row"><b>03</b><span>High-fidelity desktop and mobile UI</span></div>
-          <div class="deliver-row"><b>04</b><span>Clickable prototype and interaction notes</span></div>
-          <div class="deliver-row"><b>05</b><span>Figma component library and developer handoff</span></div>
-        </div></div>
-        <aside class="glass note-card reveal d3"><h3>Best fit</h3><p>New products, redesigns, MVPs, SaaS dashboards, mobile apps, booking flows, fintech screens, and internal tools that need better usability and stronger visual quality.</p><div class="mini-kpis"><div><strong>2x</strong><span>Review points</span></div><div><strong>100%</strong><span>Responsive</span></div></div></aside>
+      <div class="wmob">
+        <div class="glass wmc reveal d1"><div class="wmd2 page-ux-ui-design-u6"></div><div class="wmt">Research-Driven Decisions</div><div class="wmdesc">Every recommendation is supported by user insights, usability principles, and real-world evidence.</div></div>
+        <div class="glass wmc reveal d2"><div class="wmd2 page-ux-ui-design-u7"></div><div class="wmt">Business-Focused Design</div><div class="wmdesc">We design experiences that improve engagement, conversions, retention, and customer satisfaction.</div></div>
+        <div class="glass wmc reveal d3"><div class="wmd2 page-ux-ui-design-u8"></div><div class="wmt">Flexible Engagement Models</div><div class="wmdesc">Hire us for a single UX service or a complete end-to-end product design engagement.</div></div>
+        <div class="glass wmc reveal d4"><div class="wmd2 page-ux-ui-design-u5"></div><div class="wmt">Scalable Design Systems</div><div class="wmdesc">We build foundations that support future growth, consistency, and faster product development.</div></div>
+        <div class="glass wmc reveal d5"><div class="wmd2 page-ux-ui-design-u6"></div><div class="wmt">Developer-Friendly Deliverables</div><div class="wmdesc">Our deliverables are structured to reduce ambiguity and accelerate implementation.</div></div>
+        <div class="glass wmc reveal d6"><div class="wmd2 page-ux-ui-design-u7"></div><div class="wmt">Collaborative Process</div><div class="wmdesc">We work closely with founders, product teams, and stakeholders throughout the engagement.</div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- WHY OVIYAS -->
-    <section id="why" class="why-section" aria-label="Why Oviyas">
-      <div class="container">
-        <div class="why-heading">
-          <span class="label reveal">04 / Why Us</span>
-          <h2 class="reveal d1">Why Leading Brands Choose Oviyas</h2>
-        </div>
-        <div class="orbital reveal">
-          <div class="oring or1"></div>
-          <div class="oring or2"></div>
-          <div class="oglw"></div>
-          <div class="octr"><div class="glass ocrd"><div class="ow">Why</div><div class="ob">Oviyas</div></div></div>
-          <div class="wnode why-top"><div class="glass wnc"><div class="wndot" style="background:#FF8C00;"></div><div class="wnt">Scalable Systems</div><div class="wnd">Built to grow with your product, from MVP to enterprise scale.</div></div></div>
-          <div class="wnode why-right"><div class="glass wnc"><div class="wndot" style="background:#FFB347;"></div><div class="wnt">Collaborative Process</div><div class="wnd">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div></div>
-          <div class="wnode why-bottom-right"><div class="glass wnc"><div class="wndot" style="background:#FFD08A;"></div><div class="wnt">Business-Focused Approach</div><div class="wnd">Every design decision tied to your goals and measurable outcomes.</div></div></div>
-          <div class="wnode why-left"><div class="glass wnc"><div class="wndot" style="background:#FF6B2C;"></div><div class="wnt">User-Centered Design</div><div class="wnd">Rooted in empathy, validated with real user data and testing.</div></div></div>
-          <div class="wnode why-bottom-left"><div class="glass wnc"><div class="wndot" style="background:#FF8C00;"></div><div class="wnt">Pixel-Perfect Execution</div><div class="wnd">Zero compromises on craft. What you see in the mockup is what ships.</div></div></div>
-        </div>
-        <div class="wmob">
-          <div class="glass wmc reveal d1"><div class="wmd2" style="background:#FF8C00;"></div><div class="wmt">Scalable Systems</div><div class="wmdesc">Built to grow with your product, from MVP to enterprise scale.</div></div>
-          <div class="glass wmc reveal d2"><div class="wmd2" style="background:#FFB347;"></div><div class="wmt">Collaborative Process</div><div class="wmdesc">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div>
-          <div class="glass wmc reveal d3"><div class="wmd2" style="background:#FFD08A;"></div><div class="wmt">Business-Focused Approach</div><div class="wmdesc">Every design decision tied to your goals and measurable outcomes.</div></div>
-          <div class="glass wmc reveal d4"><div class="wmd2" style="background:#FF6B2C;"></div><div class="wmt">User-Centered Design</div><div class="wmdesc">Rooted in empathy, validated with real user data and testing.</div></div>
-          <div class="glass wmc reveal d5"><div class="wmd2" style="background:#FF8C00;"></div><div class="wmt">Pixel-Perfect Execution</div><div class="wmdesc">Zero compromises on craft. What you see in the mockup is what ships.</div></div>
-        </div>
+  <!-- CTA -->
+  <section class="page-ux-ui-design-u26" id="cta" aria-label="Call to action">
+    <div class="aurora caur"></div>
+    <div class="col"></div>
+    <div class="container ccnt">
+      <div class="cbadge reveal"><span class="bdot"></span>Final CTA</div>
+      <h2 class="ctitle reveal d1">Ready to Improve Your<br>User Experience?</h2>
+      <p class="csub reveal d2">Whether you need UX research, a UX audit, UI design support, or a complete product redesign, we're ready to help.</p>
+      <div class="cbtns reveal d3">
+        <a href="mailto:hello@oviyas.com" class="btnp">Start Your UI/UX Project <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a href="mailto:hello@oviyas.com" class="btns">Book a Discovery Call</a>
       </div>
-    </section>
-
-    <section class="band alt">
-      <div class="container">
-        <div class="section-head"><div><span class="label reveal">05 / Work style</span><h2 class="reveal d1">Micro case study previews</h2></div><p class="reveal d2">A compact look at the type of product work this template supports.</p></div>
-        <div class="work-grid">
-          <article class="work-card tall reveal d1"><div class="work-info"><small>Fintech app</small><h3>Cleaner onboarding and account overview</h3></div></article>
-          <article class="work-card reveal d2"><div class="work-info"><small>SaaS dashboard</small><h3>Dense analytics made easier to scan</h3></div></article>
-        </div>
+      <div class="ccon reveal d4">
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>hello@oviyas.com</div>
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.22 6.22l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (800) OVIYAS-1</div>
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Global Studio, Remote-First</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="cta">
-      <div class="container"><span class="label reveal">Start</span><h2 class="reveal d1">Need a product interface that users understand quickly?</h2><p class="reveal d2">Send us the product goal, current screens, or rough idea. We will shape it into a focused UX UI sprint.</p><a class="btn-primary reveal d3" href="mailto:hello@oviyas.com">Start Your Project</a></div>
-    </section>
-  </main>
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-logo">Oviyas<em>.</em></div>
+    <div class="f-links">
+      <a href="#services">Services</a>
+      <a href="#deliver">Deliverables</a>
+      <a href="#why">Why Us</a>
+      <a href="#cta">Contact</a>
+    </div>
+    <div class="f-copy">© 2026 Oviyas Design Studio</div>
+  </footer>
 
-  <footer><div class="f-logo">Oviyas<em>.</em></div><div class="f-links"><a href="oviyas-design-studio/index.html#project">Work</a><a href="oviyas-design-studio/index.html#services">Services</a><a href="oviyas-design-studio/index.html#about">Studio</a><a href="oviyas-design-studio/index.html#reach-us">Contact</a></div><div class="f-copy">© 2026 Oviyas Design Studio</div></footer>
   <script>
-    document.querySelectorAll('.ods-menu-toggle').forEach((toggle)=>{const menu=toggle.closest('.ods-navbar').querySelector('.ods-mobile-menu');toggle.addEventListener('click',()=>{const open=toggle.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open));menu.classList.toggle('is-open',open);});});
-    const ro=new IntersectionObserver((entries)=>entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('v');ro.unobserve(entry.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach((el)=>ro.observe(el));
+  window.addEventListener('scroll',()=>{
+    document.getElementById('nav')?.classList.toggle('s',window.scrollY>24);
+  },{passive:true});
+
+  document.querySelectorAll('.ods-menu-toggle').forEach(toggle => {
+    const menu = toggle.closest('.ods-navbar')?.querySelector('.ods-mobile-menu');
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      menu?.classList.toggle('is-open', isOpen);
+    });
+  });
+
+  const ro=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');ro.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'-50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+  function countUp(el){
+    const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';
+    const dur=1800,step=target/(dur/16);let cur=0;
+    const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+suffix;clearInterval(t);}else{el.textContent=Math.floor(cur)+suffix;}},16);
+  }
+  const so=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){countUp(e.target);so.unobserve(e.target);}});
+  },{threshold:.5});
+  document.querySelectorAll('[data-target]').forEach(el=>so.observe(el));
   </script>
-</body>
-</html>
+  </body>
+  </html>

@@ -8,264 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
-  <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:#050505;color:#fff;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-  img{max-width:100%;display:block;}
-  button,a{cursor:pointer;font-family:inherit;text-decoration:none;color:inherit;}
-  :focus-visible{outline:2px solid #FF8C00;outline-offset:3px;}
-  :root{
-    --accent:#FF8C00;--red:#FF6B2C;--blue:#FF8C00;--green:#FFB347;--yellow:#FFD08A;
-    --bg:#050505;--surface:#111111;--card:rgba(255,255,255,.05);--border:rgba(255,255,255,.08);
-    --text2:#B3B3B3;--max:1280px;--r:20px;
-  }
-  h1,h2,h3,h4,h5,h6{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.1;}
-  .container{max-width:var(--max);margin:0 auto;padding:0 32px;}
-  .glass{background:var(--card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--r);}
-  .label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:'Manrope',sans-serif;display:block;margin-bottom:16px;}
-  @keyframes aurora{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-  .aurora{background:linear-gradient(45deg,rgba(255,107,44,.18) 0%,rgba(255,140,0,.18) 25%,rgba(255,179,71,.18) 50%,rgba(255,208,138,.18) 75%,rgba(255,107,44,.18) 100%);background-size:400% 400%;animation:aurora 15s ease infinite;}
-  @keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(12px,-22px);}}
-  @keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(-15px,18px);}}
-  @keyframes float3{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,10px);}}
-  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
-  .reveal{opacity:0;transform:translateY(38px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
-  .reveal.v{opacity:1;transform:none;}
-  .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}.d5{transition-delay:.5s;}.d6{transition-delay:.6s;}.d7{transition-delay:.7s;}.d8{transition-delay:.8s;}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
-
-  /* NAV */
-  #nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s;background:rgba(5,5,5,.2);}
-  #nav.s{background:rgba(5,5,5,.88);}
-  .ni{display:flex;align-items:center;justify-content:space-between;height:64px;}
-  .nlogo{height:32px;}
-  .nlinks{display:flex;align-items:center;gap:32px;}
-  .nlinks a{font-size:14px;font-weight:500;color:var(--text2);transition:color .2s;}
-  .nlinks a:hover{color:#fff;}
-  .ncta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#000;font-size:14px;font-weight:700;padding:10px 22px;border-radius:12px;transition:opacity .2s,transform .2s;}
-  .ncta:hover{opacity:.9;transform:scale(1.03);}
-  .nhbg{display:none;flex-direction:column;gap:5px;padding:6px;background:none;border:none;}
-  .nhbg span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
-  .nmob{display:none;flex-direction:column;gap:14px;padding:20px 32px 24px;border-top:1px solid var(--border);background:rgba(5,5,5,.96);}
-  .nmob a{font-size:15px;color:var(--text2);}
-  .nmob .ncta{justify-content:center;margin-top:8px;}
-  @media(max-width:768px){.nlinks,.ncta{display:none;}.nhbg{display:flex;}.nmob.open{display:flex;}}
-
-  /* DESIGN STUDIO NAV */
-  .ods-header{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;}
-  .ods-navbar{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1280px;margin:0 auto;padding:24px 32px;}
-  .ods-logo{display:flex;align-items:center;padding:4px;border-radius:6px;transition:opacity .2s;}
-  .ods-logo:hover{opacity:.9;}
-  .ods-logo img{height:80px;width:auto;object-fit:contain;display:block;}
-  .ods-desktop-links{display:flex;align-items:center;gap:40px;}
-  .ods-nav-link{position:relative;padding:4px 0;color:rgba(240,237,232,.48);font-size:14px;font-weight:500;letter-spacing:.3px;text-decoration:none;transition:color .2s;}
-  .ods-nav-link:hover,.ods-nav-link.is-active{color:#fff;}
-  .ods-nav-link.is-active::after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:1.5px;background:#fff;border-radius:999px;}
-  .ods-actions{display:flex;align-items:center;gap:16px;}
-  .ods-cta{position:relative;overflow:hidden;background:rgba(255,255,255,.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:0;border-radius:999px;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);color:#fff;cursor:pointer;font-family:'Cabinet Grotesk',sans-serif;font-size:14px;padding:10px 24px;text-decoration:none;transition:transform .3s;}
-  .ods-cta:hover{transform:scale(1.03);}
-  .ods-cta::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
-  .ods-menu-toggle{display:none;width:42px;height:42px;border:0;border-radius:8px;background:transparent;color:rgba(240,237,232,.66);cursor:pointer;position:relative;}
-  .ods-menu-toggle span{position:absolute;left:10px;right:10px;height:2px;background:currentColor;border-radius:999px;transition:transform .2s,opacity .2s,top .2s;}
-  .ods-menu-toggle span:nth-child(1){top:14px;}.ods-menu-toggle span:nth-child(2){top:21px;}.ods-menu-toggle span:nth-child(3){top:28px;}
-  .ods-menu-toggle.is-open span:nth-child(1){top:21px;transform:rotate(45deg);}.ods-menu-toggle.is-open span:nth-child(2){opacity:0;}.ods-menu-toggle.is-open span:nth-child(3){top:21px;transform:rotate(-45deg);}
-  .ods-mobile-menu{display:none;position:absolute;top:100%;left:16px;right:16px;padding:18px;background:rgba(6,8,16,.88);border:1px solid rgba(255,255,255,.09);border-radius:18px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);}
-  .ods-mobile-menu.is-open{display:grid;gap:14px;}
-  .ods-mobile-menu a{color:rgba(240,237,232,.66);font-size:15px;text-decoration:none;padding:8px 4px;}
-  .ods-mobile-menu a.is-active{color:#fff;}
-  @media(max-width:820px){.ods-navbar{padding:14px 18px;}.ods-logo img{height:58px;}.ods-desktop-links,.ods-cta{display:none;}.ods-menu-toggle{display:block;}}
-
-  /* HERO */
-  #hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-top:64px;}
-  .haur{position:absolute;inset:0;opacity:.65;}
-  .hov{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(5,5,5,.25) 0%,rgba(5,5,5,.82) 65%);}
-  .orbs{position:absolute;inset:0;pointer-events:none;}
-  .orb{position:absolute;border-radius:50%;filter:blur(50px);}
-  .o1{width:140px;height:140px;left:8%;top:22%;background:var(--red);opacity:.09;animation:float1 6s ease-in-out infinite;}
-  .o2{width:200px;height:200px;left:28%;top:14%;background:var(--blue);opacity:.08;animation:float2 7.5s ease-in-out infinite;}
-  .o3{width:120px;height:120px;left:55%;top:35%;background:var(--green);opacity:.09;animation:float3 5.5s ease-in-out infinite;}
-  .o4{width:170px;height:170px;left:72%;top:18%;background:var(--yellow);opacity:.08;animation:float1 8s ease-in-out infinite reverse;}
-  .o5{width:90px;height:90px;left:85%;top:55%;background:var(--red);opacity:.07;animation:float2 6.5s ease-in-out infinite;}
-  .o6{width:110px;height:110px;left:15%;top:65%;background:var(--blue);opacity:.07;animation:float3 9s ease-in-out infinite;}
-  .hc{position:relative;z-index:2;padding:80px 0 40px;}
-  .hbadge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.28);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;}
-  .bdot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.8s ease-in-out infinite;}
-  .ht{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(48px,7vw,88px);line-height:1.05;margin-bottom:28px;}
-  .ht .l1{color:#fff;display:block;}
-  .ht .l2{background:linear-gradient(135deg,var(--accent),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
-  .hsub{font-size:19px;line-height:1.7;color:var(--text2);max-width:580px;margin-bottom:40px;}
-  .hbtns{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:72px;}
-  .btnp{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;font-size:16px;font-weight:700;padding:16px 32px;border-radius:14px;transition:transform .2s,opacity .2s;}
-  .btnp:hover{transform:scale(1.04);opacity:.92;}
-  .btns{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);color:#fff;font-size:16px;font-weight:600;padding:15px 32px;border-radius:14px;transition:background .2s;}
-  .btns:hover{background:rgba(255,255,255,.08);}
-  .hst{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);}
-  .sv{font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--accent);margin-bottom:4px;}
-  .sl{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);}
-  .scrl{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;z-index:2;}
-  .scrl span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);}
-  .scrl svg{animation:bounce 1.6s ease-in-out infinite;color:var(--text2);}
-  @media(max-width:768px){.hst{grid-template-columns:repeat(2,1fr);}.hsub{font-size:17px;}}
-
-  /* ABOUT */
-  .agrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-  .atxt h2{margin-bottom:24px;}
-  .atxt p{color:var(--text2);font-size:18px;line-height:1.75;margin-bottom:16px;}
-  .hlst{display:flex;flex-direction:column;gap:20px;padding:28px;}
-  .hli{display:flex;align-items:flex-start;gap:16px;}
-  .hldot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0;}
-  .hlt{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
-  .hld{font-size:13px;color:var(--text2);}
-  @media(max-width:900px){.agrid{grid-template-columns:1fr;gap:40px;}}
-
-  /* SERVICES */
-  .sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  .sc{padding:24px;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;}
-  .sc:hover{transform:scale(1.03) translateY(-4px);}
-  .sic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-  .sic svg{width:22px;height:22px;}
-  .sn{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;}
-  .sd{font-size:13px;line-height:1.6;color:var(--text2);margin-bottom:16px;}
-  .slk{font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px;}
-  .slk svg{width:12px;height:12px;}
-  @media(max-width:1100px){.sgrid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.sgrid{grid-template-columns:1fr;}}
-
-  /* DELIVER */
-  .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-  .ditems{display:flex;flex-direction:column;gap:4px;}
-  .ditem{display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.055);}
-  .ditem:hover .darr{opacity:1;}
-  .dnum{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--accent);background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.2);flex-shrink:0;font-family:'Outfit',sans-serif;}
-  .dlbl{flex:1;font-size:16px;font-weight:500;color:#fff;}
-  .darr{opacity:0;transition:opacity .2s;flex-shrink:0;}
-  .icard{padding:28px;}
-  .ihdr{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-  .iico{width:32px;height:32px;border-radius:10px;background:rgba(255,140,0,.1);display:flex;align-items:center;justify-content:center;}
-  .iico svg{width:18px;height:18px;color:var(--accent);}
-  .ititle{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:#fff;}
-  .ilst{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
-  .iitem{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text2);}
-  .iblt{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
-  .inote{padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--text2);line-height:1.6;}
-  @media(max-width:900px){.dgrid{grid-template-columns:1fr;gap:40px;}}
-
-  /* WHY */
-  @keyframes orbitLine{to{transform:rotate(360deg);}}
-  @keyframes nodeDrift{0%,100%{translate:0 0;}50%{translate:0 -10px;}}
-  .orbital{position:relative;width:min(760px,100%);height:720px;margin:0 auto;}
-  .oring{position:absolute;border-radius:50%;pointer-events:none;}
-  .or1{inset:70px;border:1px solid rgba(255,255,255,.22);animation:orbitLine 38s linear infinite;}
-  .or1::before,.or1::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(255,140,0,.75);box-shadow:0 0 20px rgba(255,140,0,.5);}
-  .or1::before{top:11%;right:18%;}
-  .or1::after{left:12%;bottom:18%;}
-  .or2{display:none;}
-  .oglw{position:absolute;inset:32px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,140,0,.08) 0%,rgba(255,140,0,.06) 34%,transparent 66%);filter:blur(2px);}
-  .octr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;}
-  .ocrd{width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.07));border-color:rgba(255,255,255,.18);box-shadow:0 24px 70px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.16);}
-  .ocrd .ow{font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:#fff;line-height:1;}
-  .ocrd .ob{font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:#fff;line-height:1.12;}
-  .wnode{position:absolute;z-index:4;width:198px;height:198px;animation:nodeDrift 5.8s ease-in-out infinite;}
-  .wnode:nth-of-type(6){animation-delay:.35s;}
-  .wnode:nth-of-type(7){animation-delay:.7s;}
-  .wnode:nth-of-type(8){animation-delay:1.05s;}
-  .wnode:nth-of-type(9){animation-delay:1.4s;}
-  .wnode:nth-of-type(10){animation-delay:1.75s;}
-  .wnc{width:100%;height:100%;padding:28px 24px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.075));border-color:rgba(255,255,255,.18);box-shadow:0 26px 80px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .3s,border-color .3s,background .3s;}
-  .wnc:hover{transform:scale(1.045);border-color:rgba(255,140,0,.42);background:linear-gradient(145deg,rgba(255,255,255,.25),rgba(255,255,255,.1));}
-  .wndot{width:8px;height:8px;border-radius:50%;margin:0 auto 12px;box-shadow:0 0 16px currentColor;}
-  .wnt{font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.15;}
-  .wnd{font-size:12px;color:rgba(255,255,255,.72);line-height:1.45;}
-  .why-top{top:0;left:50%;transform:translate(-50%,0);}
-  .why-right{top:118px;right:10px;transform:translate(0,0);}
-  .why-bottom-right{right:74px;bottom:54px;width:218px;height:218px;}
-  .why-left{top:128px;left:0;}
-  .why-bottom-left{left:116px;bottom:22px;}
-  .wmob{display:none;grid-template-columns:1fr 1fr;gap:16px;}
-  .wmc{padding:20px;}
-  .wmd2{width:8px;height:8px;border-radius:50%;margin-bottom:10px;}
-  .wmt{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:6px;}
-  .wmdesc{font-size:13px;color:var(--text2);line-height:1.5;}
-  @media(max-width:900px){.orbital{display:none;}.wmob{display:grid;}}
-  @media(prefers-reduced-motion:reduce){.or1,.wnode{animation:none;}}
-
-  /* STATS */
-  .stgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
-  .sti{text-align:center;}
-  .stiw{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
-  .stiw svg{width:24px;height:24px;}
-  .stn{font-family:'Outfit',sans-serif;font-size:clamp(40px,5vw,60px);font-weight:900;color:var(--accent);line-height:1;margin-bottom:8px;}
-  .stl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);}
-  @media(max-width:768px){.stgrid{grid-template-columns:repeat(2,1fr);}}
-
-  /* WORK */
-  .whd{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:56px;}
-  .wall{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--accent);transition:opacity .2s;}
-  .wall:hover{opacity:.75;}
-  .wall svg{width:16px;height:16px;}
-  .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-  .wcard{position:relative;overflow:hidden;border-radius:var(--r);cursor:pointer;}
-  .wcard.tall{height:360px;}.wcard.short{height:280px;}
-  .wbg{position:absolute;inset:0;transition:transform .4s cubic-bezier(.22,1,.36,1);}
-  .wcard:hover .wbg{transform:scale(1.05);}
-  .wol{position:absolute;inset:0;background:rgba(5,5,5,.4);}
-  .wext{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;}
-  .wext svg{width:16px;height:16px;color:#000;}
-  .wcard:hover .wext{opacity:1;}
-  .winf{position:absolute;bottom:0;left:0;right:0;padding:24px;display:flex;flex-direction:column;gap:6px;}
-  .wtag{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;align-self:flex-start;}
-  .wname{font-family:'Outfit',sans-serif;font-size:20px;font-weight:700;color:#fff;}
-  .wcta2{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;opacity:0;transition:opacity .3s;}
-  .wcta2 svg{width:14px;height:14px;}
-  .wcard:hover .wcta2{opacity:1;}
-  .mui{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;}
-  .mcols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px;width:100%;}
-  .mblk{border-radius:6px;height:80px;background:rgba(255,255,255,.2);}
-  @media(max-width:640px){.wgrid{grid-template-columns:1fr;}.wcard.tall,.wcard.short{height:260px;}}
-
-  /* TESTIMONIALS */
-  .ttrack{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:24px;-webkit-overflow-scrolling:touch;}
-  .ttrack::-webkit-scrollbar{height:4px;}
-  .ttrack::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:4px;}
-  .ttrack::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:4px;}
-  .tcard{flex-shrink:0;width:340px;padding:28px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between;gap:24px;}
-  .stars{display:flex;gap:4px;margin-bottom:16px;}
-  .tq{font-size:15px;font-style:italic;line-height:1.7;color:#e0e0e0;}
-  .tau{display:flex;align-items:center;gap:12px;}
-  .tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#000;flex-shrink:0;}
-  .tname{font-size:14px;font-weight:700;color:#fff;}
-  .trole{font-size:12px;color:var(--text2);}
-
-  /* CTA */
-  #cta{position:relative;padding:128px 0;overflow:hidden;background:var(--bg);}
-  .caur{position:absolute;inset:0;opacity:.45;}
-  .col{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(5,5,5,.15) 0%,rgba(5,5,5,.8) 60%);}
-  .ccnt{position:relative;z-index:2;text-align:center;}
-  .cbadge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;background:rgba(255,140,0,.1);border:1px solid rgba(255,140,0,.28);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;}
-  .ctitle{font-family:'Outfit',sans-serif;font-size:clamp(40px,6vw,72px);font-weight:900;color:#fff;margin-bottom:24px;line-height:1.05;}
-  .ctitle .gt{background:linear-gradient(135deg,var(--accent),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .csub{font-size:18px;color:var(--text2);max-width:520px;margin:0 auto 48px;line-height:1.7;}
-  .cbtns{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:56px;}
-  .ccon{display:flex;flex-wrap:wrap;justify-content:center;gap:32px;padding-top:32px;border-top:1px solid var(--border);}
-  .ci{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text2);}
-  .ci svg{width:14px;height:14px;flex-shrink:0;}
-
-  /* FOOTER */
-  footer{background:rgba(0,0,0,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;}
-  .f-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:#f0ede8;}
-  .f-logo em{color:#FF8C00;font-style:normal;}
-  .f-links{display:flex;gap:24px;}
-  .f-links a{font-size:12px;color:rgba(240,237,232,.48);text-decoration:none;letter-spacing:.5px;transition:color .2s;text-transform:uppercase;font-weight:600;}
-  .f-links a:hover{color:#FF8C00;}
-  .f-copy{font-size:12px;color:rgba(240,237,232,.2);letter-spacing:.5px;}
-  @media(max-width:760px){footer{padding:24px 20px;flex-direction:column;gap:16px;text-align:center;}.f-links{flex-wrap:wrap;justify-content:center;gap:16px;}}
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  
   </head>
-  <body>
+  <body class="page-services-detail-page">
 
-  <a href="#main" style="position:absolute;top:-100px;left:16px;background:#fff;color:#000;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:9999;transition:top .2s;" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">Skip to content</a>
+  <a class="page-services-detail-page-u1" href="#main">Skip to content</a>
 
   <!-- NAV -->
   <header class="ods-header">
@@ -316,22 +64,22 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" aria-label="About" style="padding:112px 0;background:#050505;">
+  <section class="page-services-detail-page-u2" id="about" aria-label="About">
     <div class="container">
       <span class="label reveal">01 / About</span>
       <div class="agrid">
         <div class="atxt">
-          <h2 class="reveal d1" style="font-size:clamp(32px,4vw,48px);margin-bottom:24px;">Where Creativity<br>Meets Strategy</h2>
+          <h2 class="reveal d1 page-services-detail-page-u3">Where Creativity<br>Meets Strategy</h2>
           <p class="reveal d2">Oviyas Design Studio is where bold concepts transform into world-class digital products. We don't just design — we architect experiences that move people, drive action, and make brands unforgettable.</p>
           <p class="reveal d3">Our multidisciplinary team brings together strategic thinking, creative vision, and technical precision to deliver work that stands apart in a crowded digital landscape.</p>
         </div>
         <div class="glass reveal d2">
           <div class="hlst">
-            <h3 style="font-family:'Outfit',sans-serif;font-size:16px;color:#fff;margin-bottom:8px;">Our Approach</h3>
-            <div class="hli"><div class="hldot" style="background:#FF6B2C;"></div><div><div class="hlt">Discovery &amp; Research</div><div class="hld">Deep-dive into your brand, users, and market landscape.</div></div></div>
-            <div class="hli"><div class="hldot" style="background:#FF8C00;"></div><div><div class="hlt">Strategy Development</div><div class="hld">Data-informed planning to shape the path forward.</div></div></div>
-            <div class="hli"><div class="hldot" style="background:#FFB347;"></div><div><div class="hlt">Design Excellence</div><div class="hld">Pixel-perfect execution with obsessive attention to detail.</div></div></div>
-            <div class="hli"><div class="hldot" style="background:#FFD08A;"></div><div><div class="hlt">Delivery &amp; Support</div><div class="hld">Seamless handoff and ongoing post-launch partnership.</div></div></div>
+            <h3 class="page-services-detail-page-u4">Our Approach</h3>
+            <div class="hli"><div class="hldot page-services-detail-page-u5"></div><div><div class="hlt">Discovery &amp; Research</div><div class="hld">Deep-dive into your brand, users, and market landscape.</div></div></div>
+            <div class="hli"><div class="hldot page-services-detail-page-u6"></div><div><div class="hlt">Strategy Development</div><div class="hld">Data-informed planning to shape the path forward.</div></div></div>
+            <div class="hli"><div class="hldot page-services-detail-page-u7"></div><div><div class="hlt">Design Excellence</div><div class="hld">Pixel-perfect execution with obsessive attention to detail.</div></div></div>
+            <div class="hli"><div class="hldot page-services-detail-page-u8"></div><div><div class="hlt">Delivery &amp; Support</div><div class="hld">Seamless handoff and ongoing post-launch partnership.</div></div></div>
           </div>
         </div>
       </div>
@@ -339,101 +87,101 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" aria-label="Services" style="padding:112px 0;background:#0a0a0a;">
+  <section class="page-services-detail-page-u9" id="services" aria-label="Services">
     <div class="container">
       <span class="label reveal">02 / Our Services</span>
-      <h2 class="reveal d1" style="font-size:clamp(32px,4vw,48px);margin-bottom:56px;">What We Specialize In</h2>
+      <h2 class="reveal d1 page-services-detail-page-u10">What We Specialize In</h2>
       <div class="sgrid">
         
         <article class="glass sc reveal d1"
           onmouseenter="this.style.boxShadow='0 0 30px #FF8C0022';this.style.borderColor='#FF8C0044';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FF8C0018;border:1px solid #FF8C0030;">
+          <div class="sic page-services-detail-page-u11">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           </div>
           <div class="sn">UX Research &amp; Strategy</div>
           <div class="sd">User interviews, competitive analysis, and data-driven strategy to lay the perfect foundation.</div>
-          <span class="slk" style="color:#FF8C00;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u12">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d2"
           onmouseenter="this.style.boxShadow='0 0 30px #FFB34722';this.style.borderColor='#FFB34744';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FFB34718;border:1px solid #FFB34730;">
+          <div class="sic page-services-detail-page-u13">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
           </div>
           <div class="sn">UI Design &amp; Prototyping</div>
           <div class="sd">High-fidelity interfaces and interactive prototypes that bring your product vision to life.</div>
-          <span class="slk" style="color:#FFB347;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u14">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d3"
           onmouseenter="this.style.boxShadow='0 0 30px #FFD08A22';this.style.borderColor='#FFD08A44';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FFD08A18;border:1px solid #FFD08A30;">
+          <div class="sic page-services-detail-page-u15">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFD08A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
           </div>
           <div class="sn">Brand Identity</div>
           <div class="sd">Distinctive visual systems — logos, typography, color, and guidelines — that make brands memorable.</div>
-          <span class="slk" style="color:#FFD08A;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u16">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d4"
           onmouseenter="this.style.boxShadow='0 0 30px #FF6B2C22';this.style.borderColor='#FF6B2C44';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FF6B2C18;border:1px solid #FF6B2C30;">
+          <div class="sic page-services-detail-page-u17">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <div class="sn">Motion &amp; Animation</div>
           <div class="sd">Purposeful animation that adds delight, clarity, and energy to every interaction.</div>
-          <span class="slk" style="color:#FF6B2C;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u18">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d1"
           onmouseenter="this.style.boxShadow='0 0 30px #FF8C0022';this.style.borderColor='#FF8C0044';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FF8C0018;border:1px solid #FF8C0030;">
+          <div class="sic page-services-detail-page-u11">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <div class="sn">Web Development</div>
           <div class="sd">Clean, performant front-end development that turns pixel-perfect designs into flawless code.</div>
-          <span class="slk" style="color:#FF8C00;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u12">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d2"
           onmouseenter="this.style.boxShadow='0 0 30px #FFB34722';this.style.borderColor='#FFB34744';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FFB34718;border:1px solid #FFB34730;">
+          <div class="sic page-services-detail-page-u13">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
           </div>
           <div class="sn">Mobile App Design</div>
           <div class="sd">Intuitive, native-feeling mobile experiences for iOS and Android that users love.</div>
-          <span class="slk" style="color:#FFB347;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u14">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d3"
           onmouseenter="this.style.boxShadow='0 0 30px #FFD08A22';this.style.borderColor='#FFD08A44';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FFD08A18;border:1px solid #FFD08A30;">
+          <div class="sic page-services-detail-page-u15">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFD08A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
           </div>
           <div class="sn">Design Systems</div>
           <div class="sd">Scalable, documented component libraries that keep your product consistent as it grows.</div>
-          <span class="slk" style="color:#FFD08A;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u16">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
         <article class="glass sc reveal d4"
           onmouseenter="this.style.boxShadow='0 0 30px #FF6B2C22';this.style.borderColor='#FF6B2C44';"
           onmouseleave="this.style.boxShadow='none';this.style.borderColor='rgba(255,255,255,0.08)';">
-          <div class="sic" style="background:#FF6B2C18;border:1px solid #FF6B2C30;">
+          <div class="sic page-services-detail-page-u17">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           </div>
           <div class="sn">Creative Direction</div>
           <div class="sd">End-to-end creative leadership — vision, strategy, and execution all in one trusted studio.</div>
-          <span class="slk" style="color:#FF6B2C;">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <span class="slk page-services-detail-page-u18">Learn More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </article>
       </div>
     </div>
   </section>
 
   <!-- DELIVER -->
-  <section id="deliver" aria-label="Deliverables" style="padding:112px 0;background:#050505;">
+  <section class="page-services-detail-page-u2" id="deliver" aria-label="Deliverables">
     <div class="container">
       <span class="label reveal">03 / Deliverables</span>
-      <h2 class="reveal d1" style="font-size:clamp(32px,4vw,48px);margin-bottom:56px;">Every Project.<br>Complete Package.</h2>
+      <h2 class="reveal d1 page-services-detail-page-u10">Every Project.<br>Complete Package.</h2>
       <div class="dgrid">
         <div class="ditems">
           
@@ -481,11 +229,11 @@
   </section>
 
   <!-- WHY OVIYAS -->
-  <section id="why" aria-label="Why Oviyas" style="padding:112px 0;background:#0a0a0a;overflow:hidden;">
+  <section class="page-services-detail-page-u19" id="why" aria-label="Why Oviyas">
     <div class="container">
-      <div style="text-align:center;margin-bottom:72px;">
+      <div class="page-services-detail-page-u20">
         <span class="label reveal">04 / Why Us</span>
-        <h2 class="reveal d1" style="font-size:clamp(32px,4vw,48px);">Why Leading Brands Choose Oviyas</h2>
+        <h2 class="reveal d1 page-services-detail-page-u21">Why Leading Brands Choose Oviyas</h2>
       </div>
       <div class="orbital reveal">
         <div class="oring or1"></div>
@@ -493,51 +241,51 @@
         <div class="oglw"></div>
         <div class="octr"><div class="glass ocrd"><div class="ow">Why</div><div class="ob">Oviyas</div></div></div>
         
-        <div class="wnode why-top"><div class="glass wnc"><div class="wndot" style="background:#FF8C00;"></div><div class="wnt">Scalable Systems</div><div class="wnd">Built to grow with your product — from MVP to enterprise scale.</div></div></div>
-        <div class="wnode why-right"><div class="glass wnc"><div class="wndot" style="background:#FFB347;"></div><div class="wnt">Collaborative Process</div><div class="wnd">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div></div>
-        <div class="wnode why-bottom-right"><div class="glass wnc"><div class="wndot" style="background:#FFD08A;"></div><div class="wnt">Business-Focused Approach</div><div class="wnd">Every design decision tied to your goals and measurable outcomes.</div></div></div>
-        <div class="wnode why-left"><div class="glass wnc"><div class="wndot" style="background:#FF6B2C;"></div><div class="wnt">User-Centered Design</div><div class="wnd">Rooted in empathy, validated with real user data and testing.</div></div></div>
-        <div class="wnode why-bottom-left"><div class="glass wnc"><div class="wndot" style="background:#FF8C00;"></div><div class="wnt">Pixel-Perfect Execution</div><div class="wnd">Zero compromises on craft. What you see in the mockup is what ships.</div></div></div>
+        <div class="wnode why-top"><div class="glass wnc"><div class="wndot page-services-detail-page-u6"></div><div class="wnt">Scalable Systems</div><div class="wnd">Built to grow with your product — from MVP to enterprise scale.</div></div></div>
+        <div class="wnode why-right"><div class="glass wnc"><div class="wndot page-services-detail-page-u7"></div><div class="wnt">Collaborative Process</div><div class="wnd">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div></div>
+        <div class="wnode why-bottom-right"><div class="glass wnc"><div class="wndot page-services-detail-page-u8"></div><div class="wnt">Business-Focused Approach</div><div class="wnd">Every design decision tied to your goals and measurable outcomes.</div></div></div>
+        <div class="wnode why-left"><div class="glass wnc"><div class="wndot page-services-detail-page-u5"></div><div class="wnt">User-Centered Design</div><div class="wnd">Rooted in empathy, validated with real user data and testing.</div></div></div>
+        <div class="wnode why-bottom-left"><div class="glass wnc"><div class="wndot page-services-detail-page-u6"></div><div class="wnt">Pixel-Perfect Execution</div><div class="wnd">Zero compromises on craft. What you see in the mockup is what ships.</div></div></div>
       </div>
       <div class="wmob">
         
-        <div class="glass wmc reveal d1"><div class="wmd2" style="background:#FF8C00;"></div><div class="wmt">Scalable Systems</div><div class="wmdesc">Built to grow with your product — from MVP to enterprise scale.</div></div>
-        <div class="glass wmc reveal d2"><div class="wmd2" style="background:#FFB347;"></div><div class="wmt">Collaborative Process</div><div class="wmdesc">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div>
-        <div class="glass wmc reveal d3"><div class="wmd2" style="background:#FFD08A;"></div><div class="wmt">Business-Focused Approach</div><div class="wmdesc">Every design decision tied to your goals and measurable outcomes.</div></div>
-        <div class="glass wmc reveal d4"><div class="wmd2" style="background:#FF6B2C;"></div><div class="wmt">User-Centered Design</div><div class="wmdesc">Rooted in empathy, validated with real user data and testing.</div></div>
-        <div class="glass wmc reveal d5"><div class="wmd2" style="background:#FF8C00;"></div><div class="wmt">Pixel-Perfect Execution</div><div class="wmdesc">Zero compromises on craft. What you see in the mockup is what ships.</div></div>
+        <div class="glass wmc reveal d1"><div class="wmd2 page-services-detail-page-u6"></div><div class="wmt">Scalable Systems</div><div class="wmdesc">Built to grow with your product — from MVP to enterprise scale.</div></div>
+        <div class="glass wmc reveal d2"><div class="wmd2 page-services-detail-page-u7"></div><div class="wmt">Collaborative Process</div><div class="wmdesc">You're a partner, not a client. Weekly syncs, transparent workflows.</div></div>
+        <div class="glass wmc reveal d3"><div class="wmd2 page-services-detail-page-u8"></div><div class="wmt">Business-Focused Approach</div><div class="wmdesc">Every design decision tied to your goals and measurable outcomes.</div></div>
+        <div class="glass wmc reveal d4"><div class="wmd2 page-services-detail-page-u5"></div><div class="wmt">User-Centered Design</div><div class="wmdesc">Rooted in empathy, validated with real user data and testing.</div></div>
+        <div class="glass wmc reveal d5"><div class="wmd2 page-services-detail-page-u6"></div><div class="wmt">Pixel-Perfect Execution</div><div class="wmdesc">Zero compromises on craft. What you see in the mockup is what ships.</div></div>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section id="stats" aria-label="Stats" style="padding:96px 0;background:#111111;">
+  <section class="page-services-detail-page-u22" id="stats" aria-label="Stats">
     <div class="container">
       <div class="stgrid">
         
         <div class="sti reveal d1">
-          <div class="stiw" style="background:#FF8C0018;border:1px solid #FF8C0028;">
+          <div class="stiw page-services-detail-page-u23">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
           </div>
           <div class="stn" data-target="50" data-suffix="+">0+</div>
           <div class="stl">Projects Delivered</div>
         </div>
         <div class="sti reveal d2">
-          <div class="stiw" style="background:#FFB34718;border:1px solid #FFB34728;">
+          <div class="stiw page-services-detail-page-u24">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFB347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <div class="stn" data-target="98" data-suffix="%">0%</div>
           <div class="stl">Client Satisfaction</div>
         </div>
         <div class="sti reveal d3">
-          <div class="stiw" style="background:#FFD08A18;border:1px solid #FFD08A28;">
+          <div class="stiw page-services-detail-page-u25">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FFD08A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
           <div class="stn" data-target="12" data-suffix="">0</div>
           <div class="stl">Industry Awards</div>
         </div>
         <div class="sti reveal d4">
-          <div class="stiw" style="background:#FF6B2C18;border:1px solid #FF6B2C28;">
+          <div class="stiw page-services-detail-page-u26">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FF6B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="stn" data-target="6" data-suffix="+">0+</div>
@@ -548,59 +296,59 @@
   </section>
 
   <!-- WORK -->
-  <section id="work" aria-label="Featured Works" style="padding:112px 0;background:#050505;">
+  <section class="page-services-detail-page-u2" id="work" aria-label="Featured Works">
     <div class="container">
       <div class="whd reveal">
         <div>
           <span class="label">05 / Featured Work</span>
-          <h2 style="font-size:clamp(32px,4vw,48px);">Projects We're Proud Of</h2>
+          <h2 class="page-services-detail-page-u21">Projects We're Proud Of</h2>
         </div>
         <a href="#cta" class="wall">View All Work <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="wgrid">
         
         <article class="wcard tall reveal d1">
-          <div class="wbg" style="background:linear-gradient(135deg,rgba(255,140,0,.35),rgba(255,179,71,.35));"></div>
+          <div class="wbg page-services-detail-page-u27"></div>
           <div class="wol"></div>
           <div class="mui"><div class="mcols"><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div></div></div>
-          <div class="wext" style="background:#FF8C00;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
+          <div class="wext page-services-detail-page-u6"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
           <div class="winf">
-            <span class="wtag" style="background:#FF8C0020;color:#FF8C00;border:1px solid #FF8C0030;">UI/UX Design</span>
+            <span class="wtag page-services-detail-page-u28">UI/UX Design</span>
             <div class="wname">Nexus Banking App</div>
-            <div class="wcta2" style="color:#FF8C00;">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="wcta2 page-services-detail-page-u12">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
           </div>
         </article>
         <article class="wcard tall reveal d2">
-          <div class="wbg" style="background:linear-gradient(135deg,rgba(255,107,44,.35),rgba(255,208,138,.35));"></div>
+          <div class="wbg page-services-detail-page-u29"></div>
           <div class="wol"></div>
           <div class="mui"><div class="mcols"><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div></div></div>
-          <div class="wext" style="background:#FF6B2C;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
+          <div class="wext page-services-detail-page-u5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
           <div class="winf">
-            <span class="wtag" style="background:#FF6B2C20;color:#FF6B2C;border:1px solid #FF6B2C30;">Product Design</span>
+            <span class="wtag page-services-detail-page-u30">Product Design</span>
             <div class="wname">Pulse Fitness Platform</div>
-            <div class="wcta2" style="color:#FF6B2C;">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="wcta2 page-services-detail-page-u18">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
           </div>
         </article>
         <article class="wcard short reveal d1">
-          <div class="wbg" style="background:linear-gradient(135deg,rgba(255,179,71,.35),rgba(255,140,0,.25));"></div>
+          <div class="wbg page-services-detail-page-u31"></div>
           <div class="wol"></div>
           <div class="mui"><div class="mcols"><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div></div></div>
-          <div class="wext" style="background:#FFB347;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
+          <div class="wext page-services-detail-page-u7"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
           <div class="winf">
-            <span class="wtag" style="background:#FFB34720;color:#FFB347;border:1px solid #FFB34730;">Brand Identity + UI</span>
+            <span class="wtag page-services-detail-page-u32">Brand Identity + UI</span>
             <div class="wname">Aura E-Commerce</div>
-            <div class="wcta2" style="color:#FFB347;">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="wcta2 page-services-detail-page-u14">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
           </div>
         </article>
         <article class="wcard short reveal d2">
-          <div class="wbg" style="background:linear-gradient(135deg,rgba(255,208,138,.35),rgba(255,140,0,.35));"></div>
+          <div class="wbg page-services-detail-page-u33"></div>
           <div class="wol"></div>
           <div class="mui"><div class="mcols"><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div><div class="mblk"></div></div></div>
-          <div class="wext" style="background:#FFD08A;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
+          <div class="wext page-services-detail-page-u8"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></div>
           <div class="winf">
-            <span class="wtag" style="background:#FFD08A20;color:#FFD08A;border:1px solid #FFD08A30;">Design System</span>
+            <span class="wtag page-services-detail-page-u34">Design System</span>
             <div class="wname">Orion SaaS Dashboard</div>
-            <div class="wcta2" style="color:#FFD08A;">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            <div class="wcta2 page-services-detail-page-u16">View Case Study <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
           </div>
         </article>
       </div>
@@ -608,34 +356,34 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" aria-label="Testimonials" style="padding:112px 0;background:#0a0a0a;">
+  <section class="page-services-detail-page-u9" id="testimonials" aria-label="Testimonials">
     <div class="container">
       <span class="label reveal">06 / Testimonials</span>
-      <h2 class="reveal d1" style="font-size:clamp(32px,4vw,48px);margin-bottom:48px;">What Clients Say</h2>
+      <h2 class="reveal d1 page-services-detail-page-u35">What Clients Say</h2>
       <div class="ttrack">
         
         <div class="glass tcard">
           <div><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg></div><div class="tq">"Oviyas completely transformed our product. They didn't just execute a design — they elevated our entire brand identity. The result exceeded every expectation."</div></div>
-          <div class="tau"><div class="tav" style="background:#FF8C00;">S</div><div><div class="tname">Sarah Chen</div><div class="trole">CPO, Nexus Financial</div></div></div>
+          <div class="tau"><div class="tav page-services-detail-page-u6">S</div><div><div class="tname">Sarah Chen</div><div class="trole">CPO, Nexus Financial</div></div></div>
         </div>
         <div class="glass tcard">
           <div><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg></div><div class="tq">"Working with Oviyas felt like having a world-class creative team embedded in our company. Their process is structured, their craft is impeccable."</div></div>
-          <div class="tau"><div class="tav" style="background:#FF6B2C;">M</div><div><div class="tname">Marcus Williams</div><div class="trole">Founder, Pulse Health</div></div></div>
+          <div class="tau"><div class="tav page-services-detail-page-u5">M</div><div><div class="tname">Marcus Williams</div><div class="trole">Founder, Pulse Health</div></div></div>
         </div>
         <div class="glass tcard">
           <div><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg></div><div class="tq">"The design system they built has scaled with us from 10 to 500+ employees. That kind of strategic thinking is rare to find."</div></div>
-          <div class="tau"><div class="tav" style="background:#FFB347;">P</div><div><div class="tname">Priya Nair</div><div class="trole">VP Design, Orion Labs</div></div></div>
+          <div class="tau"><div class="tav page-services-detail-page-u7">P</div><div><div class="tname">Priya Nair</div><div class="trole">VP Design, Orion Labs</div></div></div>
         </div>
         <div class="glass tcard">
           <div><div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#FFD08A" stroke="#FFD08A" stroke-width="1"/></svg></div><div class="tq">"They understood our brand at a level we hadn't even articulated ourselves. The final product was us — just infinitely more refined."</div></div>
-          <div class="tau"><div class="tav" style="background:#FFD08A;">J</div><div><div class="tname">James Okafor</div><div class="trole">CEO, Aura Commerce</div></div></div>
+          <div class="tau"><div class="tav page-services-detail-page-u8">J</div><div><div class="tname">James Okafor</div><div class="trole">CEO, Aura Commerce</div></div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section id="cta" aria-label="Call to action" style="position:relative;padding:128px 0;overflow:hidden;background:#050505;">
+  <section class="page-services-detail-page-u36" id="cta" aria-label="Call to action">
     <div class="aurora caur"></div>
     <div class="col"></div>
     <div class="container ccnt">
