@@ -2353,6 +2353,15 @@ body.page-our-services .page-our-services-u1{justify-content:center;margin-botto
 body.page-our-services .page-our-services-u2{font-size:16px;padding:16px 40px}
 
 
+body.page-our-services .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+body.page-our-services .scope-card{padding:22px;min-height:190px;transition:transform .2s,border-color .2s,background .2s}
+body.page-our-services .scope-card:hover{transform:translateY(-4px);border-color:rgba(255,140,0,.34);background:rgba(255,255,255,.075)}
+body.page-our-services .scope-card .num{font-family:Outfit,Arial,sans-serif;color:var(--accent);font-weight:900;font-size:13px;margin-bottom:18px}
+body.page-our-services .scope-card h3{font-size:18px;margin-bottom:10px}
+body.page-our-services .scope-card p{color:var(--text-muted);font-size:14px;line-height:1.6}
+@media (max-width:980px){body.page-our-services .card-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){body.page-our-services .card-grid{grid-template-columns:1fr}}
+
 /* oviyas_fleet_portfolio.html */
 
 body.page-oviyas_fleet_portfolio *{margin:0;padding:0;box-sizing:border-box}
