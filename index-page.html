@@ -22,7 +22,7 @@
     <canvas id="loading-stars" class="star-canvas page-index-page-u1"></canvas>
 
     <div id="loading-content">
-      <img id="loading-logo" src="/logo.png" alt="Oviyas Logo" onerror="this.style.display='none'" />
+      <img id="loading-logo" src="assest/logo-white.png" alt="Oviyas Logo" onerror="this.style.display='none'" />
       <p id="loading-dispatch">Dispatch Preparation</p>
 
       <div id="loading-bar-header">
@@ -49,7 +49,7 @@
   <header id="navbar">
     <nav id="nav-inner">
       <a href="#" id="nav-logo-link" onclick="handleRouteClick('Home'); return false;">
-        <img id="nav-logo-img" src="/logo.png" alt="Oviyas Logo" onerror="this.style.display='none'" />
+        <img id="nav-logo-img" src="assest/logo-white.png" alt="Oviyas Logo" onerror="this.style.display='none'" />
       </a>
 
       <div id="desktop-links">
@@ -453,7 +453,7 @@
     gsap.registerPlugin(ScrollToPlugin);
 
     // ===== CONSTANTS =====
-    const TOTAL_FRAMES = 259;
+    const TOTAL_FRAMES = 292;
     const ZOOM_FACTOR = 1.05;
 
     const NAV_LINKS = ['Home', 'About', 'Services', 'Project', 'Reach Us'];
@@ -591,8 +591,8 @@
 
       for (let i = 1; i <= TOTAL_FRAMES; i++) {
         const img = new Image();
-        const padded = String(i).padStart(3, '0');
-        img.src = `frames-index/ezgif-frame-${padded}.jpg`;
+        const padded = String(i).padStart(5, '0');
+        img.src = `frames-index/img_${padded}.webp`;
         img.onload = onLoad;
         img.onerror = onLoad; // count errors as loaded too
         imagesRef.push(img);
