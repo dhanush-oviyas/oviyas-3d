@@ -4195,3 +4195,63 @@ footer {
     animation: none;
   }
 }
+
+/* ── Chips Grid ── */
+.chips-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ── Single Chip ── */
+.chip {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 140, 30, 0.25);
+  border-radius: 6px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+/* ── Chip Hover ── */
+.chip:hover {
+  background: rgba(201, 140, 30, 0.08);
+  border-color: rgba(201, 140, 30, 0.60);
+  transform: translateY(-3px);
+}
+
+/* ── Chip Icon ── */
+.chip svg {
+  width: 28px;
+  height: 28px;
+  stroke: #C98C1E;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.chip:hover svg {
+  transform: scale(1.1);
+}
+
+/* ── Chip Label ── */
+.chip span {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  line-height: 1.5;
+}
