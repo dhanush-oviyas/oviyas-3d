@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oviyas Design Studio — Chennai's Award-Winning UX/UI Agency</title>
+  <meta name="description"
+    content="3× International award-winning design studio in India. We deliver UX/UI design, web design, brand identity and 3D web experiences that move business forward." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+
+
+</head>
+
+<body class="page-index-page">
+
+  <!-- Accessibility: skip nav -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loading-screen" role="status" aria-live="polite" aria-label="Loading Oviyas Design Studio">
+    <canvas id="loading-stars" aria-hidden="true"></canvas>
+    <div id="loading-content">
+      <img id="loading-logo" src="assest/logo-white.png" alt="Oviyas Design Studio"
+        onerror="this.style.display='none'" />
+      <p id="loading-dispatch">Dispatch Preparation</p>
+      <div id="loading-bar-header" aria-hidden="true">
+        <span>Preloading Cinematics</span>
+        <span id="loading-pct">000%</span>
+      </div>
+      <div id="loading-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        aria-label="Loading progress">
+        <div id="loading-bar-fill"></div>
+      </div>
+      <p id="loading-hint">Optimizing high-performance frame memory arrays…</p>
+    </div>
+  </div>
+
+  <!-- ===== CINEMATIC STAGE ===== -->
+  <div id="cinematic-stage" aria-hidden="true">
+    <canvas id="cinematic-canvas"></canvas>
+    <div id="vignette-top"></div>
+    <div id="vignette-bottom"></div>
+    <canvas id="stage-stars"></canvas>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar">
+    <nav id="nav-inner" aria-label="Main navigation">
+      <a href="#" id="nav-logo-link" onclick="handleRouteClick('Home'); return false;"
+        aria-label="Oviyas Design Studio — Home">
+        <img id="nav-logo-img" src="assest/logo-white.png" alt="Oviyas Design Studio"
+          onerror="this.style.display='none'" />
+      </a>
+
+      <div id="desktop-links" role="list"></div>
+
+      <div id="nav-actions">
+        <a id="header-cta" class="liquid-glass" href="contact-us.html" aria-label="Contact us — start a project">
+          Contact Us
+        </a>
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu"
+          aria-expanded="false" aria-controls="mobile-drawer">
+          <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg id="menu-icon-close" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== DOTS PROGRESS ===== -->
+  <nav id="dots-panel" aria-label="Page sections" role="navigation"></nav>
+
+  <!-- ===== SCROLL TOP FAB ===== -->
+  <div id="scroll-top-fab" aria-hidden="true">
+    <button id="scroll-top-btn" class="liquid-glass" onclick="scrollToFraction(0)" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section id="act-hero" aria-labelledby="hero-title">
+      <div id="hero-inner">
+
+        <div class="hero-badge animate-fade-rise" aria-label="3 International Awards">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          3× International Award Winner
+        </div>
+
+        <h1 id="hero-title" class="animate-fade-rise">
+          Oviyas Design Studio
+        </h1>
+
+        <p id="hero-subtitle-yellow" class="animate-fade-rise-d1">
+          Creative UX / UI & Web Design Agency — Chennai
+        </p>
+
+        <!-- KPIs row -->
+        <div class="hero-kpis animate-fade-rise-d1" aria-label="Studio statistics">
+          <div class="kpi-item">
+            <div class="kpi-value">50+</div>
+            <div class="kpi-label">Projects Delivered</div>
+          </div>
+          <div class="kpi-item" aria-hidden="true" style="font-size:1.5rem;opacity:0.2;align-self:center;">|</div>
+          <div class="kpi-item">
+            <div class="kpi-value">3×</div>
+            <div class="kpi-label">Global Awards</div>
+          </div>
+          <div class="kpi-item" aria-hidden="true" style="font-size:1.5rem;opacity:0.2;align-self:center;">|</div>
+          <div class="kpi-item">
+            <div class="kpi-value">8+</div>
+            <div class="kpi-label">Years of Craft</div>
+          </div>
+        </div>
+
+        <p id="hero-subtitle" class="animate-fade-rise-d1">
+          India's design studio that transforms brands into experiences — from identity systems and conversion-focused
+          UX to immersive 3D web.
+        </p>
+
+        <div id="hero-cta-wrap" class="animate-fade-rise-d2">
+          <button class="hero-cta-btn primary" onclick="window.location.href='contact-us.html'">
+            Start a Project
+            <span class="btn-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </button>
+          <button class="hero-cta-btn liquid-glass" onclick="window.location.href='our-works.html'">
+            See Our Work
+            <span class="btn-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div id="scroll-hint" class="animate-bounce-ud" aria-hidden="true">
+        <span id="scroll-hint-text">Scroll to Explore</span>
+        <span id="scroll-hint-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <polyline points="19 12 12 19 5 12" />
+          </svg>
+        </span>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="act-studio" aria-labelledby="studio-heading">
+      <div id="studio-inner">
+        <span class="section-label">About the Studio</span>
+        <h2 id="studio-heading" class="section-heading gradient-heading-warm reveal">
+          Crafting Experiences That Inspire
+        </h2>
+
+        <div class="studio-stats reveal d1" aria-label="Studio highlights">
+          <div class="stat-chip">
+            <span class="val">Chennai</span>
+            <span class="lbl">Based in India</span>
+          </div>
+          <div class="stat-chip">
+            <span class="val">Global</span>
+            <span class="lbl">Reach & Awards</span>
+          </div>
+        </div>
+
+        <p class="section-text reveal d2">
+          At Oviyas Design Studio, we blend creativity, strategy, and technology to build digital experiences that help
+          brands grow and connect with their audience. Every project is crafted with purpose — where aesthetics and
+          functionality work seamlessly together.
+        </p>
+        <p class="section-text reveal d3">
+          From ambitious startups to established businesses, we collaborate closely to transform ideas into impactful
+          products, memorable identities, and engaging digital solutions.
+        </p>
+        <div class="reveal d4">
+          <button class="section-cta-btn liquid-glass" onclick="window.location.href='about-us.html'">
+            Discover Our Story
+            <span class="btn-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ── -->
+    <section id="act-philosophy" aria-labelledby="philosophy-heading">
+      <div id="philosophy-inner">
+        <span class="section-label">Our Services</span>
+        <h2 id="philosophy-heading" class="section-heading reveal">
+          Designing Digital Experiences That Make an Impact
+        </h2>
+
+        <div class="service-pills reveal d1" aria-label="Service areas">
+          <span class="service-pill">UX / UI Design</span>
+          <span class="service-pill">Web Design</span>
+          <span class="service-pill">Brand Identity</span>
+          <span class="service-pill">3D Interactive</span>
+        </div>
+
+        <p id="philosophy-text" class="reveal d2">
+          Intuitive UX/UI that sharpens user journeys. Visually rich Web Design that strengthens online presence. Every
+          experience is functional, memorable, and aligned with your business goals.
+        </p>
+        <p id="philosophy-text" class="reveal d3">
+          We build distinctive Brand Identity systems that tell your story and immersive Interactive 3D on Web
+          experiences that captivate through innovation.
+        </p>
+        <div class="reveal d4">
+          <button class="section-cta-btn liquid-glass" onclick="window.location.href='our-services.html'">
+            Explore All Services
+            <span class="btn-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OUR WORKS ── -->
+    <section id="act-works" aria-labelledby="works-heading">
+      <div id="works-inner">
+        <span class="section-label">Selected Work</span>
+        <h2 id="works-heading" class="section-heading gradient-heading-warm reveal">
+          Turning Ideas Into Remarkable Experiences
+        </h2>
+        <p class="section-text reveal d1">
+          Our portfolio showcases projects where creativity meets strategy — solutions that solve real business
+          challenges while leaving a lasting impression. Research-led, collaboration-driven, detail-obsessed.
+        </p>
+        <p class="section-text reveal d2">
+          From branding and UI/UX to immersive web and creative campaigns — digital experiences people love and
+          businesses value.
+        </p>
+        <div class="reveal d3">
+          <button class="section-cta-btn liquid-glass" onclick="window.location.href='our-works.html'">
+            View All Work
+            <span class="btn-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY OVIYAS ── -->
+    <section class="why-section" id="why" aria-labelledby="why-heading">
+      <div class="container" style="width:min(1280px,100% - 48px);margin-inline:auto;">
+        <div class="why-header reveal">
+          <span class="section-label" style="display:block;margin-bottom:0.75rem;">04 / Why Choose Oviyas</span>
+          <h2 id="why-heading">Why Businesses Choose Oviyas</h2>
+          <p>User-centred design thinking meets business strategy — to create digital experiences that are intuitive,
+            scalable, and measurable.</p>
+        </div>
+
+        <!-- Desktop orbital -->
+        <div class="orbital" aria-hidden="true">
+          <div class="oring or1"></div>
+          <div class="oglw"></div>
+          <div class="octr">
+            <div class="ocrd">
+              <div class="ow">Why</div>
+              <div class="ob">Oviyas</div>
+            </div>
+          </div>
+          <div class="wnode why-top">
+            <div class="wnc">
+              <div class="wndot" style="background:#FF6B2C;color:#FF6B2C;"></div>
+              <div class="wnt">Research-Driven Decisions</div>
+              <div class="wnd">Every recommendation is supported by user insights, usability principles, and real-world
+                evidence.</div>
+            </div>
+          </div>
+          <div class="wnode why-tr">
+            <div class="wnc">
+              <div class="wndot" style="background:#FF8C00;color:#FF8C00;"></div>
+              <div class="wnt">Business-Focused Design</div>
+              <div class="wnd">We design for engagement, conversions, retention, and measurable customer satisfaction.
+              </div>
+            </div>
+          </div>
+          <div class="wnode why-br">
+            <div class="wnc">
+              <div class="wndot" style="background:#FFD08A;color:#FFD08A;"></div>
+              <div class="wnt">Scalable Design Systems</div>
+              <div class="wnd">We build foundations that support future growth, consistency, and faster product
+                development.</div>
+            </div>
+          </div>
+          <div class="wnode why-bl">
+            <div class="wnc">
+              <div class="wndot" style="background:#FF6B2C;color:#FF6B2C;"></div>
+              <div class="wnt">Developer-Ready Deliverables</div>
+              <div class="wnd">Our specs reduce ambiguity and accelerate engineering implementation at every stage.
+              </div>
+            </div>
+          </div>
+          <div class="wnode why-tl">
+            <div class="wnc">
+              <div class="wndot" style="background:#FF8C00;color:#FF8C00;"></div>
+              <div class="wnt">Collaborative Process</div>
+              <div class="wnd">Founders, product teams, and stakeholders stay involved at every stage of the engagement.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile cards -->
+        <div class="wmob" role="list">
+          <div class="glass wmc reveal d1" role="listitem">
+            <div class="wmd" style="background:#FF6B2C;"></div>
+            <div class="wmt">Research-Driven</div>
+            <div class="wmde">User insights and real-world evidence power every recommendation.</div>
+          </div>
+          <div class="glass wmc reveal d2" role="listitem">
+            <div class="wmd" style="background:#FF8C00;"></div>
+            <div class="wmt">Business-Focused</div>
+            <div class="wmde">Design that improves engagement, conversions, and customer satisfaction.</div>
+          </div>
+          <div class="glass wmc reveal d3" role="listitem">
+            <div class="wmd" style="background:#FFD08A;"></div>
+            <div class="wmt">Scalable Systems</div>
+            <div class="wmde">Foundations built for growth, consistency, and faster product cycles.</div>
+          </div>
+          <div class="glass wmc reveal d4" role="listitem">
+            <div class="wmd" style="background:#FF6B2C;"></div>
+            <div class="wmt">Dev-Ready Specs</div>
+            <div class="wmde">Clear deliverables that reduce ambiguity and accelerate implementation.</div>
+          </div>
+          <div class="glass wmc reveal d5" role="listitem">
+            <div class="wmd" style="background:#FF8C00;"></div>
+            <div class="wmt">Collaborative</div>
+            <div class="wmde">Founders and stakeholders stay involved at every stage of design.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── JOURNAL / CTA ── -->
+    <section id="act-journal" aria-labelledby="journal-heading">
+      <div id="journal-card" class="liquid-glass">
+        <div>
+          <span class="sparkle-circle" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </span>
+        </div>
+        <span id="journal-dispatch">Final Dispatch Channel</span>
+        <h2 id="journal-heading">Enter The Undercurrent</h2>
+        <p id="journal-desc">
+          Join our private journal. We dispatch design patterns, raw insights, and slow-tech reflections. No tracking.
+          Zero noise.
+        </p>
+
+        <form id="journal-form" onsubmit="handleEmailSubmit(event, 'journal')" novalidate>
+          <div class="email-input-wrap">
+            <label for="journal-email" class="sr-only">Your email address</label>
+            <input type="email" required id="journal-email" class="email-input" placeholder="Your email address"
+              autocomplete="email" />
+            <span class="email-input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            </span>
+          </div>
+          <button type="submit" class="submit-btn">
+            Secure Passage
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </button>
+        </form>
+        <p id="journal-privacy">Strict privacy. Your coordinates remain strictly yours.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===== SITE FOOTER ===== -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="sf-inner">
+      <span class="sf-copy">© 2026 Oviyas Design Studio</span>
+      <nav class="sf-links" aria-label="Footer navigation">
+        <a href="index.html" class="sf-link">Home</a>
+        <a href="about-us.html" class="sf-link">About</a>
+        <a href="our-works.html" class="sf-link">Work</a>
+        <a href="our-services.html" class="sf-link">Services</a>
+        <a href="contact-us.html" class="sf-link">Contact</a>
+      </nav>
+      <span class="sf-meta">Chennai, India · Remote Friendly</span>
+    </div>
+  </footer>
+
+  <!-- ===== CONTACT DIALOG ===== -->
+  <div id="dialog-backdrop" onclick="handleBackdropClick(event)" role="dialog" aria-modal="true"
+    aria-labelledby="dialog-heading" aria-describedby="dialog-desc">
+    <div id="dialog-container" class="liquid-glass">
+      <button id="dialog-close" type="button" onclick="closeDialog()" aria-label="Close dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div id="dialog-form-step">
+        <span class="sparkle-circle" aria-hidden="true" style="display:inline-flex;margin-bottom:1.25rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="width:1.35rem;height:1.35rem;color:var(--accent)">
+            <path d="M4 4h16v16H4z" />
+            <path d="m4 7 8 5 8-5" />
+          </svg>
+        </span>
+
+        <h2 id="dialog-heading">Start a Project</h2>
+        <p id="dialog-desc">Share your email and we'll send a focused reply with the best next step for your product,
+          brand, or website.</p>
+
+        <form id="dialog-form" onsubmit="handleEmailSubmit(event, 'dialog')" novalidate>
+          <div class="email-input-wrap">
+            <label for="dialog-email" class="sr-only">Your email address</label>
+            <input type="email" required id="dialog-email" class="email-input" placeholder="Your email address"
+              autocomplete="email" />
+            <span class="email-input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 7 8 5 8-5" />
+              </svg>
+            </span>
+          </div>
+          <button type="submit" class="submit-btn">
+            Send Inquiry
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </button>
+        </form>
+        <p id="dialog-privacy">Strict privacy. No spam. No tracking.</p>
+      </div>
+
+      <div id="dialog-success-step" role="status" aria-live="polite">
+        <div class="success-check" aria-hidden="true">✓</div>
+        <h2 id="success-heading">Message Received</h2>
+        <p id="success-desc">Thanks. We'll review your details and respond with a focused, tailored reply.</p>
+        <div id="success-quote"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MOBILE DRAWER ===== -->
+  <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <nav id="mobile-links" aria-label="Mobile navigation links"></nav>
+    <div id="mobile-drawer-footer">
+      <a id="mobile-cta" class="liquid-glass" href="contact-us.html">
+        Begin Journey
+      </a>
+      <div id="mobile-footer-meta">
+        <span>Oviyas Design Studio</span>
+        <span>Chennai, India</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen reader utility -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0
+    }
+  </style>
+
+  <script>
+    gsap.registerPlugin(ScrollToPlugin);
+
+    // ===== CONSTANTS =====
+    const TOTAL_FRAMES = 292;
+    const ZOOM_FACTOR = 1.05;
+    const NAV_LINKS = ['Home', 'About', 'Services', 'Work'];
+    const DOT_LINKS = [
+      { name: 'Home', sectionId: 'act-hero', fraction: 0 },
+      { name: 'About', sectionId: 'act-studio', fraction: 0.32 },
+      { name: 'Services', sectionId: 'act-philosophy', fraction: 0.62 },
+      { name: 'Work', sectionId: 'act-works', fraction: 0.88 }
+    ];
+    const QUOTES = [
+      "Where creativity meets reality.",
+      "Web, UX & UI Design Agency — Chennai and across the globe.",
+      "Behind every great design, a clear UX strategy stands."
+    ];
+
+    // ===== STATE =====
+    let activeTab = 'Home', isMobileMenuOpen = false, isDialogOpen = false;
+    let scrollProgress = 0, isLoading = true;
+    const imagesRef = [];
+    let currentFrameIndex = 0;
+
+    // ===== STAR FIELD =====
+    function createStarField(canvas, opacity) {
+      canvas.style.opacity = opacity;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
+      const stars = Array.from({ length: 80 }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        size: Math.random() * 1.5 + 0.3, opacity: Math.random() * 0.55 + 0.1,
+        speed: Math.random() * 0.035 + 0.012, twinkle: Math.random() * 0.018 + 0.004, dir: Math.random() > .5 ? 1 : -1
+      }));
+      (function draw() {
+        ctx.clearRect(0, 0, w, h);
+        stars.forEach(s => {
+          s.y -= s.speed;
+          if (s.y < 0) { s.y = h; s.x = Math.random() * w; }
+          s.opacity += s.twinkle * s.dir;
+          if (s.opacity > 0.72 || s.opacity < 0.08) s.dir *= -1;
+          ctx.fillStyle = `rgba(255,255,255,${Math.max(0.05, Math.min(0.8, s.opacity))})`;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      })();
+    }
+    createStarField(document.getElementById('loading-stars'), 0.6);
+    createStarField(document.getElementById('stage-stars'), 0.28);
+
+    // ===== CANVAS =====
+    const mainCanvas = document.getElementById('cinematic-canvas');
+    function drawFrame(index) {
+      const ctx = mainCanvas.getContext('2d');
+      if (!ctx) return;
+      const img = imagesRef[index];
+      if (!img || !img.complete || img.naturalWidth === 0) return;
+      const cW = mainCanvas.width, cH = mainCanvas.height;
+      ctx.clearRect(0, 0, cW, cH);
+      const ir = img.naturalWidth / img.naturalHeight, cr = cW / cH;
+      let dW = cW, dH = cH, oX = 0, oY = 0;
+      if (cr > ir) { dH = cW / ir; oY = (cH - dH) / 2; } else { dW = cH * ir; oX = (cW - dW) / 2; }
+      const zW = dW * ZOOM_FACTOR, zH = dH * ZOOM_FACTOR;
+      ctx.drawImage(img, oX - (zW - dW) / 2, oY - (zH - dH) / 2, zW, zH);
+    }
+    function resizeCanvas() {
+      mainCanvas.width = window.innerWidth;
+      mainCanvas.height = window.innerHeight;
+      drawFrame(currentFrameIndex);
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    // ===== PRELOAD =====
+    function startPreload() {
+      let loaded = 0;
+      const pct = document.getElementById('loading-pct');
+      const fill = document.getElementById('loading-bar-fill');
+      const bar = document.getElementById('loading-bar-track');
+      for (let i = 1; i <= TOTAL_FRAMES; i++) {
+        const img = new Image();
+        const pad = String(i).padStart(5, '0');
+        img.src = `frames-index/img_${pad}.webp`;
+        img.onload = img.onerror = () => {
+          loaded++;
+          const p = Math.round((loaded / TOTAL_FRAMES) * 100);
+          pct.textContent = String(p).padStart(3, '0') + '%';
+          fill.style.width = p + '%';
+          bar.setAttribute('aria-valuenow', p);
+          if (loaded === TOTAL_FRAMES) setTimeout(finishLoading, 700);
+        };
+        imagesRef.push(img);
+      }
+    }
+    function finishLoading() {
+      isLoading = false;
+      const screen = document.getElementById('loading-screen');
+      screen.classList.add('fade-out');
+      setTimeout(() => screen.classList.add('hidden'), 800);
+      resizeCanvas(); drawFrame(0);
+      initRevealObserver(); initScrollListener(); initMouseParallax();
+    }
+
+    // ===== SCROLL =====
+    function initScrollListener() {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const st = window.scrollY;
+          const ms = document.documentElement.scrollHeight - window.innerHeight;
+          if (ms <= 0) { ticking = false; return; }
+          scrollProgress = Math.max(0, Math.min(1, st / ms));
+          const fi = Math.min(TOTAL_FRAMES - 1, Math.floor(scrollProgress * TOTAL_FRAMES));
+          currentFrameIndex = fi; drawFrame(fi);
+          // Active tab
+          const sections = [
+            { id: 'act-hero', tab: 'Home' }, { id: 'act-studio', tab: 'About' },
+            { id: 'act-philosophy', tab: 'Services' }, { id: 'act-works', tab: 'Work' }
+          ];
+          let nt = 'Home'; const py = st + window.innerHeight * 0.35;
+          for (const s of sections) { const el = document.getElementById(s.id); if (el && py >= el.offsetTop) nt = s.tab; }
+          if (nt !== activeTab) { activeTab = nt; updateNavActive(); }
+          // FAB
+          const fab = document.getElementById('scroll-top-fab');
+          fab.classList.toggle('visible', scrollProgress > 0.12);
+          fab.setAttribute('aria-hidden', scrollProgress <= 0.12 ? 'true' : 'false');
+          ticking = false;
+        });
+      }, { passive: true });
+    }
+
+    // ===== MOUSE PARALLAX =====
+    function initMouseParallax() {
+      window.addEventListener('mousemove', e => {
+        const nx = (e.clientX / window.innerWidth) - 0.5;
+        const ny = (e.clientY / window.innerHeight) - 0.5;
+        gsap.to(mainCanvas, { x: -nx * 40, y: -ny * 40, duration: 1.4, ease: 'power2.out', overwrite: 'auto' });
+      });
+    }
+
+    // ===== REVEAL OBSERVER =====
+    function initRevealObserver() {
+      const els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('v')); return; }
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('v'); obs.unobserve(entry.target); } });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(e => obs.observe(e));
+    }
+
+    // ===== SCROLL HELPERS =====
+    function scrollToFraction(f) {
+      const ms = document.documentElement.scrollHeight - window.innerHeight;
+      gsap.to(window, { scrollTo: ms * f, duration: 1.6, ease: 'power3.inOut' });
+    }
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      gsap.to(window, { scrollTo: { y: el, offsetY: 80 }, duration: 1.4, ease: 'power3.inOut' });
+    }
+
+    // ===== NAV RENDERING =====
+    function renderDesktopNav() {
+      const c = document.getElementById('desktop-links');
+      c.innerHTML = NAV_LINKS.map(l => `
+        <a href="#" class="nav-link${activeTab === l ? ' active' : ''}" role="listitem"
+           onclick="event.preventDefault();handleRouteClick('${l}')"
+           data-link="${l}" aria-current="${activeTab === l ? 'page' : 'false'}">
+          ${l}
+          ${activeTab === l ? '<span class="active-dot" aria-hidden="true"></span>' : ''}
+        </a>`).join('');
+    }
+    function renderMobileNav() {
+      const c = document.getElementById('mobile-links');
+      c.innerHTML = NAV_LINKS.map(l => `
+        <button class="mobile-nav-link${activeTab === l ? ' active' : ''}"
+                onclick="handleRouteClick('${l}')" data-link="${l}"
+                aria-current="${activeTab === l ? 'page' : 'false'}">
+          ${l}
+        </button>`).join('');
+    }
+    function renderDots() {
+      const c = document.getElementById('dots-panel');
+      c.innerHTML = DOT_LINKS.map(d => {
+        const fn = d.sectionId ? "scrollToSection('" + d.sectionId + "')" : "scrollToFraction(" + d.fraction + ")";
+        return '<button class="dot-btn" onclick="' + fn + '" aria-label="Navigate to ' + d.name + ' section"><span class="dot-label" aria-hidden="true">' + d.name + '</span><div class="dot-circle' + (activeTab === d.name ? ' active' : '') + '" aria-hidden="true"></div></button>';
+      }).join('');
+    }
+    function updateNavActive() {
+      document.querySelectorAll('#desktop-links .nav-link').forEach(a => {
+        const l = a.dataset.link;
+        const isActive = l === activeTab;
+        a.classList.toggle('active', isActive);
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+        const dot = a.querySelector('.active-dot');
+        if (isActive && !dot) { const s = document.createElement('span'); s.className = 'active-dot'; s.setAttribute('aria-hidden', 'true'); a.appendChild(s); }
+        else if (!isActive && dot) dot.remove();
+      });
+      document.querySelectorAll('#mobile-links .mobile-nav-link').forEach(b => {
+        b.classList.toggle('active', b.dataset.link === activeTab);
+      });
+      document.querySelectorAll('.dot-circle').forEach((d, i) => {
+        d.classList.toggle('active', DOT_LINKS[i]?.name === activeTab);
+      });
+    }
+
+    // ===== MOBILE MENU =====
+    function toggleMobileMenu() {
+      isMobileMenuOpen = !isMobileMenuOpen;
+      const drawer = document.getElementById('mobile-drawer');
+      const btn = document.getElementById('mobile-menu-btn');
+      const io = document.getElementById('menu-icon-open');
+      const ic = document.getElementById('menu-icon-close');
+      drawer.classList.toggle('open', isMobileMenuOpen);
+      btn.setAttribute('aria-expanded', isMobileMenuOpen ? 'true' : 'false');
+      io.style.display = isMobileMenuOpen ? 'none' : 'block';
+      ic.style.display = isMobileMenuOpen ? 'block' : 'none';
+      if (isMobileMenuOpen) { document.body.style.overflow = 'hidden'; }
+      else { document.body.style.overflow = ''; }
+    }
+    function closeMobileMenu() {
+      isMobileMenuOpen = false;
+      document.getElementById('mobile-drawer').classList.remove('open');
+      document.getElementById('mobile-menu-btn').setAttribute('aria-expanded', 'false');
+      document.getElementById('menu-icon-open').style.display = 'block';
+      document.getElementById('menu-icon-close').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // ===== ROUTE CLICK =====
+    function handleRouteClick(link) {
+      closeMobileMenu();
+      if (link === 'Home') scrollToFraction(0);
+      else if (link === 'About') window.location.href = 'about-us.html';
+      else if (link === 'Services') window.location.href = 'our-services.html';
+      else if (link === 'Work') window.location.href = 'our-works.html';
+
+    }
+
+    // ===== DIALOG =====
+    function openDialog() {
+      isDialogOpen = true;
+      document.getElementById('dialog-backdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('dialog-email')?.focus(), 350);
+    }
+    function closeDialog() {
+      isDialogOpen = false;
+      document.getElementById('dialog-backdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!isDialogOpen) {
+          document.getElementById('dialog-form-step').style.display = '';
+          document.getElementById('dialog-success-step').style.display = 'none';
+          document.getElementById('dialog-email').value = '';
+        }
+      }, 500);
+    }
+    function handleBackdropClick(e) {
+      if (e.target === document.getElementById('dialog-backdrop')) closeDialog();
+    }
+
+    // ===== EMAIL SUBMIT =====
+    function handleEmailSubmit(e, src) {
+      e.preventDefault();
+      const inp = document.getElementById(src === 'dialog' ? 'dialog-email' : 'journal-email');
+      if (!inp.value.trim()) return;
+      if (src === 'dialog') {
+        document.getElementById('dialog-form-step').style.display = 'none';
+        const s = document.getElementById('dialog-success-step');
+        s.style.display = 'block';
+        document.getElementById('success-quote').textContent = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+        setTimeout(() => closeDialog(), 3200);
+      } else {
+        inp.value = '';
+        const btn = e.target.querySelector('.submit-btn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✓ Secured!';
+        setTimeout(() => { btn.innerHTML = orig; }, 2000);
+      }
+    }
+
+    // ===== KEYBOARD =====
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeDialog(); closeMobileMenu(); }
+    });
+
+    // ===== INIT =====
+    renderDesktopNav(); renderMobileNav(); renderDots();
+    startPreload();
+  </script>
+</body>
+
+</html>
