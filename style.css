@@ -926,7 +926,8 @@ body.page-creative-design .page-creative-design-u36 {position:relative;padding:1
       --font-display: 'Bebas Neue', Arial, sans-serif;
       --font-body: 'General Sans', sans-serif;
       --foreground: hsl(0 0% 100%);
-      --muted-fg: hsl(240 4% 66%);
+      --muted-fg: hsl(240 4% 78%);
+      --accent: #FF8C00;
       --page-gutter: clamp(2rem, 4vw, 5rem);
     }
 
@@ -1020,7 +1021,7 @@ body.page-creative-design .page-creative-design-u36 {position:relative;padding:1
 
     body.page-index-page #loading-dispatch {
       font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-      color: rgba(154,162,180,0.6); font-family: var(--font-body);
+      color: rgba(154,162,180,0.72); font-family: var(--font-body);
       margin-bottom: 4rem;
     }
 
@@ -1042,7 +1043,7 @@ body.page-creative-design .page-creative-design-u36 {position:relative;padding:1
       width: 0%; transition: width 0.3s ease-out;
     }
 
-    body.page-index-page #loading-hint { font-size: 10px; color: rgba(154,162,180,0.4); font-style: italic; font-family: var(--font-body); }
+    body.page-index-page #loading-hint { font-size: 10px; color: rgba(154,162,180,0.55); font-style: italic; font-family: var(--font-body); }
 
     /* ===== FIXED BACKGROUND STAGE ===== */
     body.page-index-page #cinematic-stage {
@@ -1255,9 +1256,9 @@ body.page-index-page #nav-inner {
     }
 
     body.page-index-page #hero-subtitle {
-      color: rgba(255,255,255,0.7); font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      color: rgba(255,255,255,0.78); font-size: clamp(0.9rem, 1.5vw, 1.05rem);
       max-width: 38rem; margin-top: 1.5rem; line-height: 1.7;
-      font-weight: 300; letter-spacing: 0.025em;
+      font-weight: 350; letter-spacing: 0.025em;
     }
 
     body.page-index-page #hero-cta-wrap { margin-top: 3.5rem; }
@@ -1315,20 +1316,22 @@ body.page-index-page #nav-inner {
 
     body.page-index-page #studio-inner { max-width: 36rem; width: 100%; }
     body.page-index-page #studio-label {
-      font-size: 16px; letter-spacing: 0.3em; color: rgba(154,162,180,0.5);
+      font-size: 16px; letter-spacing: 0.3em; color: rgba(154,162,180,0.7);
       text-transform: uppercase; display: block; margin-bottom: 0.75rem;
       font-weight: 500; font-family: monospace;
     }
-    body.page-index-page #studio-heading {
+    body.page-index-page .section-heading {
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 400; letter-spacing: -0.02em; line-height: 0.98; margin-bottom: 1.5rem;
+    }
+    body.page-index-page #studio-heading {
       background: linear-gradient(135deg, #ffffff 40%, #ff8c00 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    body.page-index-page #studio-p1,body.page-index-page #studio-p2 {
-      color: rgba(255,255,255,0.75); font-weight: 300;
+    body.page-index-page .section-text {
+      color: rgba(180,188,204,0.92); font-weight: 400;
       font-size: clamp(0.875rem, 1.5vw, 1rem);
       line-height: 1.8; letter-spacing: 0.025em; margin-bottom: 2rem;
     }
@@ -1360,7 +1363,7 @@ body.page-index-page #nav-inner {
       text-align: right; display: flex; flex-direction: column; align-items: flex-end;
     }
     body.page-index-page #philosophy-label {
-      font-size: 10px; letter-spacing: 0.3em; color: rgba(154,162,180,0.5);
+      font-size: 10px; letter-spacing: 0.3em; color: rgba(154,162,180,0.7);
       text-transform: uppercase; display: block; margin-bottom: 0.75rem;
       font-weight: 500; font-family: monospace;
     }
@@ -1370,8 +1373,14 @@ body.page-index-page #nav-inner {
       font-weight: 400; color: #fff;
       letter-spacing: -0.02em; line-height: 0.98; margin-bottom: 1.5rem;
     }
-body.page-index-page #philosophy-text {
-      color: rgba(154,162,180,0.8); font-weight: 300;
+    body.page-index-page #hero-subtitle {
+      color: rgba(255,255,255,0.78); font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+      max-width: 38rem; margin-top: 1.5rem; line-height: 1.7;
+      font-weight: 350; letter-spacing: 0.025em;
+    }
+
+    body.page-index-page #philosophy-text {
+      color: rgba(180,188,204,0.92); font-weight: 400;
       font-size: clamp(0.875rem, 1.5vw, 1rem);
       line-height: 1.8; letter-spacing: 0.025em; margin-bottom: 2rem;
       max-width: 32rem;
@@ -1923,9 +1932,9 @@ body.page-index-page #philosophy-text {
       font-weight: 400; color: #fff; letter-spacing: -0.02em; margin-bottom: 0.75rem;
     }
     body.page-index-page #journal-desc {
-      color: rgba(154,162,180,0.8); font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+      color: rgba(180,188,204,0.92); font-size: clamp(0.75rem, 1.5vw, 0.875rem);
       line-height: 1.8; margin-bottom: 2rem; max-width: 24rem; margin-left: auto; margin-right: auto;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     body.page-index-page #journal-form { max-width: 24rem; margin: 0 auto; }
@@ -2078,7 +2087,7 @@ body.page-index-page #philosophy-text {
       color: var(--muted-fg); font-size: 0.875rem;
       line-height: 1.8; margin-bottom: 2rem;
       max-width: 24rem; margin-left: auto; margin-right: auto;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     body.page-index-page #dialog-form .email-input-wrap { margin-bottom: 1rem; }
