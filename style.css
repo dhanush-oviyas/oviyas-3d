@@ -4203,7 +4203,7 @@ footer {
   gap: 12px;
   justify-content: center;
 }
-
+ 
 /* ── Single Chip ── */
 .chip {
   width: 120px;
@@ -4219,16 +4219,17 @@ footer {
   justify-content: center;
   gap: 10px;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
 }
-
+ 
 /* ── Chip Hover ── */
 .chip:hover {
   background: rgba(201, 140, 30, 0.08);
   border-color: rgba(201, 140, 30, 0.60);
   transform: translateY(-3px);
 }
-
+ 
 /* ── Chip Icon ── */
 .chip svg {
   width: 28px;
@@ -4240,11 +4241,11 @@ footer {
   stroke-linejoin: round;
   transition: transform 0.2s ease;
 }
-
+ 
 .chip:hover svg {
   transform: scale(1.1);
 }
-
+ 
 /* ── Chip Label ── */
 .chip span {
   font-size: 9.5px;
